@@ -26,8 +26,9 @@ func Init() {
 		return
 	}
 	// Setup connection string
-	host, user, pwd, name, port := shared.DbParams()
-	dsn := fmt.Sprintf(dnsStr, host, user, pwd, name, port)
+	dbParams := shared.GetDbParams()
+	dsn := fmt.Sprintf(dnsStr, dbParams.Host, dbParams.User, dbParams.Pwd, dbParams.Name,
+		dbParams.Port)
 	// Open connection
 	conn, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {

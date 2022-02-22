@@ -13,7 +13,7 @@ Check the jwt-cookie is present.
 */
 func apiMiddleware(c *gin.Context) {
 	// Get the jwt string from the cookie
-	jwtstr, err := c.Cookie(shared.CookieName())
+	jwtstr, err := c.Cookie(shared.GetCookieParams().Name)
 	if err != nil || jwtstr == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
 		c.Abort()
@@ -38,7 +38,7 @@ Check the jwt-cookie is present.
 */
 func authMiddleware(c *gin.Context) {
 	// Get the jwt string from the cookie
-	jwtstr, err := c.Cookie(shared.CookieName())
+	jwtstr, err := c.Cookie(shared.GetCookieParams().Name)
 	if jwtstr == "" || err != nil {
 		c.Next()
 		return

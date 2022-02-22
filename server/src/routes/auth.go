@@ -56,8 +56,9 @@ func login(c *gin.Context) {
 		return
 	}
 	// Set the cookie
-	name, exp, path, domain, isSecure := shared.CookieParams()
-	c.SetCookie(name, jwtstr, exp, path, domain, isSecure, true)
+	cookieParams := shared.GetCookieParams()
+	c.SetCookie(cookieParams.Name, jwtstr, cookieParams.Exp, cookieParams.Path,
+		cookieParams.Domain, cookieParams.Secure, true)
 	// Return json
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }
@@ -68,8 +69,9 @@ func login(c *gin.Context) {
 */
 func logout(c *gin.Context) {
 	// Set the cookie
-	name, _, path, domain, isSecure := shared.CookieParams()
-	c.SetCookie(name, "", 0, path, domain, isSecure, true)
+	cookieParams := shared.GetCookieParams()
+	c.SetCookie(cookieParams.Name, "", 0, cookieParams.Path, cookieParams.Domain,
+		cookieParams.Secure, true)
 	// Return
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }

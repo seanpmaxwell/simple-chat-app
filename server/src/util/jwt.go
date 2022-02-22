@@ -31,17 +31,17 @@ Get a jwt string with the data encoded.
 */
 func SignJwt(data interface{}) (string, error) {
 	// If passed, create a *jwt.Token with the claims
-	exp := shared.JwtExp()
+	jwtParams := shared.GetJwtParams()
 	claims := JwtClaims{
 		jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Second * time.Duration(exp)).Unix(),
+			ExpiresAt: time.Now().Add(time.Second * time.Duration(jwtParams.Exp)).Unix(),
 			Issuer:    "simple-chat-app/server",
 		},
 		data,
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	// Sign the token with the secret
-	tokenStr, err := token.SignedString(shared.JwtSecret())
+	tokenStr, err := token.SignedString(jwtParams.Secret)
 	if err != nil {
 		return "", err
 	}
@@ -76,5 +76,5 @@ func parseHelper(token *jwt.Token) (interface{}, error) {
 	if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 		return nil, fmt.Errorf(signMethodErr, token.Header["alg"])
 	}
-	return shared.JwtSecret(), nil
+	return shared.GetJwtParams().Secret, nil
 }
