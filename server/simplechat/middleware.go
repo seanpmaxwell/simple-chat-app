@@ -1,26 +1,23 @@
-package routes
+package simplechat
 
 import (
-	"net/http"
-	"simple-chat-app/server/src/shared"
-	"simple-chat-app/server/src/util"
-
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
-/**
-Check the jwt-cookie is present.
-*/
-func apiMiddleware(c *gin.Context) {
+// TODO It is not clear to me why you have two almost identical middlewares?
+
+// APIMiddleware checks that the jwt-cookie is present.
+func APIMiddleware(c *gin.Context) {
 	// Get the jwt string from the cookie
-	jwtstr, err := c.Cookie(shared.CookieName())
+	jwtstr, err := c.Cookie(GetCookieName())
 	if err != nil || jwtstr == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
 		c.Abort()
 		return
 	}
 	// Pase the string and get the claims
-	data, err := util.ParseJwt(jwtstr)
+	data, err := ParseJwt(jwtstr)
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
 		c.Abort()
@@ -28,23 +25,21 @@ func apiMiddleware(c *gin.Context) {
 	}
 	// Set Session Data
 	session := parseJwtData(data)
-	c.Set(shared.SessionDataKey(), session)
+	c.Set(GetSessionDataKey(), session)
 	// Return
 	c.Next()
 }
 
-/**
-Check the jwt-cookie is present.
-*/
-func authMiddleware(c *gin.Context) {
+// AuthMiddleware checks that the jwt-cookie is present.
+func AuthMiddleware(c *gin.Context) {
 	// Get the jwt string from the cookie
-	jwtstr, err := c.Cookie(shared.CookieName())
+	jwtstr, err := c.Cookie(GetCookieName())
 	if jwtstr == "" || err != nil {
 		c.Next()
 		return
 	}
-	// Pase the string and get the claims
-	data, err := util.ParseJwt(jwtstr)
+	// Parse the string and get the claims
+	data, err := ParseJwt(jwtstr)
 	if data == nil || err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		c.Abort()
@@ -52,16 +47,14 @@ func authMiddleware(c *gin.Context) {
 	}
 	// Set Session Data
 	session := parseJwtData(data)
-	c.Set(shared.SessionDataKey(), session)
+	c.Set(GetSessionDataKey(), session)
 	// Return
 	c.Next()
 }
 
-/**
-The API middleware needs this too
-*/
-func parseJwtData(data *map[string]interface{}) *SessionData {
-	return &SessionData{
+// parseJwtData converts JWT into Session object
+func parseJwtData(data *map[string]interface{}) *Session {
+	return &Session{
 		ID:    uint((*data)["id"].(float64)),
 		Email: (*data)["email"].(string),
 		Name:  (*data)["name"].(string),

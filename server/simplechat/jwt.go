@@ -3,14 +3,12 @@ JWT Documentation: https://pkg.go.dev/github.com/golang-jwt/jwt
 Examples: https://github.com/dgrijalva/jwt-go/blob/master/example_test.go
 */
 
-package util
+package simplechat
 
 import (
 	"errors"
 	"fmt"
 	"time"
-
-	"simple-chat-app/server/src/shared"
 
 	"github.com/golang-jwt/jwt"
 )
@@ -21,18 +19,16 @@ const (
 	signMethodErr       = "unexpected signing method: %v"
 )
 
-type JwtClaims struct {
+type JWTClaims struct {
 	jwt.StandardClaims
 	Data interface{} `json:"data"`
 }
 
-/**
-Get a jwt string with the data encoded.
-*/
+// SignJwt gets a JWT string with its data encoded.
 func SignJwt(data interface{}) (string, error) {
 	// If passed, create a *jwt.Token with the claims
-	exp := shared.JwtExp()
-	claims := JwtClaims{
+	exp := GetJWTExp()
+	claims := JWTClaims{
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(time.Second * time.Duration(exp)).Unix(),
 			Issuer:    "simple-chat-app/server",
@@ -41,7 +37,7 @@ func SignJwt(data interface{}) (string, error) {
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	// Sign the token with the secret
-	tokenStr, err := token.SignedString(shared.JwtSecret())
+	tokenStr, err := token.SignedString(GetJWTSecret())
 	if err != nil {
 		return "", err
 	}
@@ -49,11 +45,9 @@ func SignJwt(data interface{}) (string, error) {
 	return tokenStr, err
 }
 
-/**
-Parse a jwt string and return the data.
-*/
+// ParseJwt parse a jwt string and return the data as a map.
 func ParseJwt(jwtstr string) (*map[string]interface{}, error) {
-	// Parse the the token, Don't forget to validate the alg is what you expect.
+	// Parse the token, Don't forget to validate the alg is what you expect.
 	token, err := jwt.Parse(jwtstr, parseHelper)
 	if err != nil {
 		return nil, err
@@ -76,5 +70,5 @@ func parseHelper(token *jwt.Token) (interface{}, error) {
 	if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 		return nil, fmt.Errorf(signMethodErr, token.Header["alg"])
 	}
-	return shared.JwtSecret(), nil
+	return GetJWTSecret(), nil
 }
