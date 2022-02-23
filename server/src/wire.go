@@ -16,7 +16,7 @@ import (
 func InitializeServer() (*Server, error) {
 	wire.Build(
 		shared.NewEnvVars,
-		getDbConn,
+		newDbConn,
 		util.NewJwtUtil,
 		util.NewPwdUtil,
 		repos.NewUserRepo,

@@ -19,7 +19,7 @@ import (
 func InitializeServer() (*Server, error) {
 	envVars := shared.NewEnvVars()
 	jwtUtil := util.NewJwtUtil(envVars)
-	db := getDbConn(envVars)
+	db := newDbConn(envVars)
 	userRepo := repos.NewUserRepo(db)
 	pwdUtil := util.NewPwdUtil()
 	authService := services.NewAuthService(userRepo, pwdUtil)

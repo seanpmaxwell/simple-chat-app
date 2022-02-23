@@ -1,14 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"simple-chat-app/server/src/models"
 	"simple-chat-app/server/src/routers"
 	"simple-chat-app/server/src/shared"
 
 	"github.com/gin-gonic/gin"
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm"
 )
 
 const (
@@ -31,26 +27,6 @@ func NewServer(
 	middleware *routers.Middlware,
 ) *Server {
 	return &Server{envVars, apiRouter, middleware}
-}
-
-/**
-https://github.com/go-gorm/postgres
-*/
-func getDbConn(envVars *shared.EnvVars) *gorm.DB {
-	// Setup connection string
-	dbParams := envVars.DbParams
-	dsn := fmt.Sprintf(dnsStr, dbParams.Host, dbParams.User, dbParams.Pwd, dbParams.Name,
-		dbParams.Port)
-	// Open connection
-	conn, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
-	if err != nil {
-		fmt.Println(err.Error())
-		return nil
-	}
-	// Migrate GORM models
-	conn.AutoMigrate(&models.User{}, &models.UserCreds{})
-	// Init connection
-	return conn
 }
 
 /**
