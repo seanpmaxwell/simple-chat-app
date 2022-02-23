@@ -9,7 +9,6 @@ import (
 
 const (
 	serverStartMsg = "Gin server running on localhost"
-	dnsStr         = "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable"
 )
 
 type Server struct {
