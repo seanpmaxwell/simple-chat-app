@@ -27,16 +27,16 @@ type CookieParams struct {
 	Exp    int
 }
 
-var (
-	dbParams     = DbParams{}
-	cookieParams = CookieParams{}
-	jwtParams    = JwtParams{}
-)
+type EnvVars struct {
+	DbParams     *DbParams
+	JwtParams    *JwtParams
+	CookieParams *CookieParams
+}
 
 /**
 Load env file and call functions that require parsing.
 */
-func initEnv() {
+func NewEnvVars() *EnvVars {
 	var err error
 	// Database
 	dbHost := os.Getenv("DATABASE_HOST")
@@ -44,7 +44,7 @@ func initEnv() {
 	dbName := os.Getenv("DATABASE_NAME")
 	dbUser := os.Getenv("DATABASE_USER")
 	dbPwd := os.Getenv("DATABASE_PASSWORD")
-	dbParams = DbParams{dbHost, dbPort, dbName, dbUser, dbPwd}
+	dbParams := DbParams{dbHost, dbPort, dbName, dbUser, dbPwd}
 	// Cookie
 	cookieName := os.Getenv("COOKIE_NAME")
 	cookieDomain := os.Getenv("COOKIE_DOMAIN")
@@ -57,29 +57,9 @@ func initEnv() {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
-	cookieParams = CookieParams{cookieName, cookieDomain, cookiePath, secureCookie, cookieExp}
+	cookieParams := CookieParams{cookieName, cookieDomain, cookiePath, secureCookie, cookieExp}
 	// Json-Web-Token
 	jwtSecret := []byte(os.Getenv("JWT_SECRET"))
-	jwtParams = JwtParams{jwtSecret, cookieExp}
-}
-
-/**
-Look in daos/db.go for connection setup.
-*/
-func GetDbParams() *DbParams {
-	return &dbParams
-}
-
-/**
-Needed in jwtUtil to sign the token and the session middleware.
-*/
-func GetJwtParams() *JwtParams {
-	return &jwtParams
-}
-
-/**
-Use to set the cookie in the auth router
-*/
-func GetCookieParams() *CookieParams {
-	return &cookieParams
+	jwtParams := JwtParams{jwtSecret, cookieExp}
+	return &EnvVars{&dbParams, &jwtParams, &cookieParams}
 }

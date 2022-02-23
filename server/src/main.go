@@ -3,17 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"simple-chat-app/server/src/dal"
-	"simple-chat-app/server/src/routes"
-	"simple-chat-app/server/src/shared"
 
-	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-)
-
-const (
-	serverStartMsg = "Gin server running on localhost"
-	envFolderPath  = "../server/env"
 )
 
 /**
@@ -33,21 +24,6 @@ func init() {
 Main()
 */
 func main() {
-	shared.Init() // <--Must be first
-	dal.Init()
-	startServer()
-}
-
-/**
-Start the Gin server.
-*/
-func startServer() {
-	engine := gin.Default()
-	engine.GET("/", func(c *gin.Context) {
-		c.String(200, serverStartMsg)
-	})
-	// Add routers (Groups) to the gin-engine
-	routes.Init(engine)
-	// Start the server
-	engine.Run()
+	server := NewServer()
+	server.Run()
 }
