@@ -1,9 +1,21 @@
+## About
+Simple CRUD app with Login
+
+
+#### Architecure
+Layered: Routers (http) -> Services (business logic) -> Repos (Gorm queries) 
+
+
+#### Tools
+Go + Gin (web-server and hot-reloading) + Gorm (ORM) + Postgres (DB) + Godotenv (environment variable loading) + Wire (Depedency Injection) + Golang-JWT (Session Storage) + Bcrypt (password hashing)
+
+
 #### Setup
 - Created with: `go mod init server`
 - For hot-reloading:
     - Add this to `export PATH=/home/your_name/go/bin:$PATH` to `.bashrc`.
     - Hot reloading docs: `https://github.com/codegangsta/gin`
-- Add this to your settings.json file so wire.go does not show linter warnings:
+- Add this to Vscode's `settings.json` file so `wire.go` does not show linter warnings:
 ```JSON
     "gopls.env": {
         "GOFLAGS": "-tags=wireinject"
@@ -26,8 +38,5 @@
 
 
 #### Notes
-- If you add a dependency struct (i.e. router, repo, service, util, etc), you need to place it's dependencies (if it has any) as properties, create a `NewNameOfTheStruct"()` function for it, and place that function in `wire.go`. Then update the dependency injections with `sh run.sh wire`.
+- If you create a dependency (i.e. struct that's a router, repo, service, util, etc), you need to place it's dependencies (if it has any) as properties, create a `NewNameOfTheStruct"()` function for it, and place that function in `wire.go`. Then update the dependency injections with `sh run.sh wire`.
 - Constraints cannot be altered after a table is created. You need to drop the table and recreate the constraint.
-
-
-#### Todo
