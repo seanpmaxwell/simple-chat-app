@@ -10,6 +10,9 @@ type UserRepo struct {
 	Db *gorm.DB
 }
 
+/**
+New()
+*/
 func NewUserRepo(db *gorm.DB) *UserRepo {
 	return &UserRepo{db}
 }
