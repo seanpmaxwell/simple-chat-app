@@ -26,7 +26,7 @@ type Server struct {
 }
 
 /**
-New() and setup Dependency-Injection.
+New() and Dependency-Injection.
 */
 func NewServer() *Server {
 	envVars := shared.NewEnvVars()
@@ -42,19 +42,6 @@ func NewServer() *Server {
 	apiRouter := routers.NewApiRouter(authRouter, userRouter)
 	server := Server{envVars, apiRouter, middleware}
 	return &server
-}
-
-/**
-Start the gin engine.
-*/
-func (s *Server) Run() {
-	engine := gin.Default()
-	engine.GET("/", func(c *gin.Context) {
-		c.String(200, serverStartMsg)
-	})
-	s.addRoutes(engine)
-	engine.Use()
-	engine.Run()
 }
 
 /**
@@ -75,6 +62,19 @@ func getDbConn(envVars *shared.EnvVars) *gorm.DB {
 	conn.AutoMigrate(&models.User{}, &models.UserCreds{})
 	// Init connection
 	return conn
+}
+
+/**
+Start the gin engine.
+*/
+func (s *Server) Run() {
+	engine := gin.Default()
+	engine.GET("/", func(c *gin.Context) {
+		c.String(200, serverStartMsg)
+	})
+	s.addRoutes(engine)
+	engine.Use()
+	engine.Run()
 }
 
 /**
