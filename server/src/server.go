@@ -81,10 +81,11 @@ func (s *Server) Run() {
 Setup all routes
 */
 func (s *Server) addRoutes(engine *gin.Engine) {
+	//// Setup API routes
 	apiGroup := engine.Group("/api")
 	// Setup auth routes
-	ar := s.apiRouter.AuthRouter
 	authGroup := apiGroup.Group("/auth")
+	ar := s.apiRouter.AuthRouter
 	authGroup.PUT("/login", ar.Login)
 	authGroup.GET("/logout", ar.Logout)
 	authGroup.Use(s.middleware.SessionMw)
@@ -97,4 +98,6 @@ func (s *Server) addRoutes(engine *gin.Engine) {
 	userGroup.POST("/", ur.Add)
 	userGroup.PUT("/", ur.Update)
 	userGroup.DELETE("/:id", ur.Delete)
+	//// Setup Static routes
+	// TODO
 }
