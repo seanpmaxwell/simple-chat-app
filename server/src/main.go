@@ -24,6 +24,10 @@ func init() {
 Main()
 */
 func main() {
-	server := NewServer()
-	server.Run()
+	server, err := InitializeServer()
+	if err != nil {
+		fmt.Printf("failed to create event: %s\n", err)
+		os.Exit(2)
+	}
+	server.Start()
 }

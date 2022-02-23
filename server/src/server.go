@@ -3,11 +3,8 @@ package main
 import (
 	"fmt"
 	"simple-chat-app/server/src/models"
-	"simple-chat-app/server/src/repos"
 	"simple-chat-app/server/src/routers"
-	"simple-chat-app/server/src/services"
 	"simple-chat-app/server/src/shared"
-	"simple-chat-app/server/src/util"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/driver/postgres"
@@ -28,20 +25,12 @@ type Server struct {
 /**
 New() and Dependency-Injection.
 */
-func NewServer() *Server {
-	envVars := shared.NewEnvVars()
-	dbConn := getDbConn(envVars)
-	jwtUtil := util.NewJwtUtil(envVars)
-	pwdUtil := util.NewPwdUtil()
-	userRepo := repos.NewUserRepo(dbConn)
-	userService := services.NewUserService(userRepo, pwdUtil)
-	authService := services.NewAuthService(userRepo, pwdUtil)
-	middleware := routers.NewMiddleware(envVars, jwtUtil)
-	userRouter := routers.NewUserRouter(userService)
-	authRouter := routers.NewAuthRouter(envVars, jwtUtil, authService)
-	apiRouter := routers.NewApiRouter(authRouter, userRouter)
-	server := Server{envVars, apiRouter, middleware}
-	return &server
+func NewServer(
+	envVars *shared.EnvVars,
+	apiRouter *routers.ApiRouter,
+	middleware *routers.Middlware,
+) *Server {
+	return &Server{envVars, apiRouter, middleware}
 }
 
 /**
@@ -67,7 +56,7 @@ func getDbConn(envVars *shared.EnvVars) *gorm.DB {
 /**
 Start the gin engine.
 */
-func (s *Server) Run() {
+func (s *Server) Start() {
 	engine := gin.Default()
 	engine.GET("/", func(c *gin.Context) {
 		c.String(200, serverStartMsg)

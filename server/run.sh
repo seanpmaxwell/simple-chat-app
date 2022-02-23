@@ -17,6 +17,8 @@ elif [ $1 = "full" ]; then
     go build -o dist ./src && ./dist "$env"
 elif [ $1 = "clean" ]; then
     go mod tidy
+elif [ $1 = "wire" ]; then
+    wire ./src/
 else
     echo "Command not found"
 fi

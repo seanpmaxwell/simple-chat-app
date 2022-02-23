@@ -13,13 +13,14 @@
     - `startb`: Run compiled code.
     - `full`: Build and run compiled code.
     - `clean`: Clean up go.mod
+    - `wire`: Update dependency injections.
 - Append the environment name at the end (i.e. `sh run.sh start staging`):
     - If you don't sepecify an environment, `development` is default.
     - Environment names must match file names under `./env`
 
 
 #### Notes
-- folder `dal/` holds GORM queries. <i>dal</i> stands for <b>Data-Access-Layer</b>
+- If you add a dependency struct (i.e. router, repo, service, util, etc), you need to place it's dependencies (if it has any) as properties, create a `NewNameOfTheStruct"()` function for it, and place that function in `wire.go`. Then update the dependency injections with `sh run.sh wire`.
 - Constraints cannot be altered after a table is created. You need to drop the table and recreate the constraint.
 
 
