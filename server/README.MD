@@ -3,6 +3,12 @@
 - For hot-reloading:
     - Add this to `export PATH=/home/your_name/go/bin:$PATH` to `.bashrc`.
     - Hot reloading docs: `https://github.com/codegangsta/gin`
+- Add this to your settings.json file so wire.go does not show linter warnings:
+```JSON
+    "gopls.env": {
+        "GOFLAGS": "-tags=wireinject"
+    },
+```
 
 
 #### Commands
