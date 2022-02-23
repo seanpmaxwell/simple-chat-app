@@ -84,15 +84,15 @@ func (s *Server) addRoutes(engine *gin.Engine) {
 	apiGroup := engine.Group("/api")
 	// Setup auth routes
 	ar := s.apiRouter.AuthRouter
-	ag := apiGroup.Group("/auth")
-	ag.PUT("/login", ar.Login)
-	ag.GET("/logout", ar.Logout)
-	ag.Use(s.middleware.SessionMw)
-	ag.GET("/session-data", ar.SessionData)
+	authGroup := apiGroup.Group("/auth")
+	authGroup.PUT("/login", ar.Login)
+	authGroup.GET("/logout", ar.Logout)
+	authGroup.Use(s.middleware.SessionMw)
+	authGroup.GET("/session-data", ar.SessionData)
 	// Setup user routes
-	engine.Use(s.middleware.SessionMw)
-	ur := s.apiRouter.UserRouter
+	apiGroup.Use(s.middleware.SessionMw)
 	userGroup := apiGroup.Group("/users")
+	ur := s.apiRouter.UserRouter
 	userGroup.GET("/", ur.FetchAll)
 	userGroup.POST("/", ur.Add)
 	userGroup.PUT("/", ur.Update)
