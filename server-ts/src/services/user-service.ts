@@ -1,4 +1,4 @@
-import userRepo from '@repos/user-repo;
+import userRepo from '@repos/user-repo';
 import User, { IUser, IUserCreds } from '@models/user-model';
 import pwdUtil from '@util/pwd-util';
 
