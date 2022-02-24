@@ -62,5 +62,5 @@ const settings = {
 // For migrations
 // module.exports = settings;
 
-// For DAOs
+// For Repos
 export default settings;

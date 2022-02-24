@@ -1,4 +1,4 @@
-import userDao from '@daos/user-dao';
+import userRepo from '@repos/user-repo;
 import User, { IUser, IUserCreds } from '@models/user-model';
 import pwdUtil from '@util/pwd-util';
 
@@ -18,7 +18,7 @@ const errors = {
 async function addOne(email: string, name: string, password: string): Promise<void> {
     // Save the user
     const newUser = User.new(email, name);
-    const newUserId = await userDao.addOne(newUser);
+    const newUserId = await userRepo.addOne(newUser);
     if (!newUserId) {
         throw Error(errors.addOne);
     }
@@ -29,7 +29,7 @@ async function addOne(email: string, name: string, password: string): Promise<vo
         pwdHash,
         userId: newUser.id,
     };
-    await userDao.addCreds(creds);
+    await userRepo.addCreds(creds);
 }
 
 
@@ -39,7 +39,7 @@ async function addOne(email: string, name: string, password: string): Promise<vo
  * @returns
  */
 function fetchAll(): Promise<IUser[]> {
-    return userDao.fetchAll();
+    return userRepo.fetchAll();
 }
 
 

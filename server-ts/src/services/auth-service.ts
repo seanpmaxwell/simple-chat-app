@@ -1,7 +1,7 @@
 import jsonwebtoken, { JwtPayload } from 'jsonwebtoken'; 
 import randomstring from 'randomstring';
 
-import userDao from '@daos/user-dao';
+import userRepo from '@repos/user-repo';
 import pwdUtil from '@util/pwd-util';
 
 
@@ -21,12 +21,12 @@ interface ILoginResp {
  */
 async function login(email: string, password: string): Promise<ILoginResp> {
     // Fetch user
-    const user = await userDao.findByEmail(email);
+    const user = await userRepo.findByEmail(email);
     if (!user) {
         return {passed: false};
     }
     // Fetch password-hash
-    const pwdHash = await userDao.fetchPwdHash(user.id);
+    const pwdHash = await userRepo.fetchPwdHash(user.id);
     // Check password
     const pwdPassed = await pwdUtil.verify(password, pwdHash);
     if (!pwdPassed) {

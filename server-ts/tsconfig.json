@@ -48,8 +48,8 @@
         "@models/*": [
           "./models/*"
         ],
-        "@daos/*": [
-          "./daos/*"
+        "@repos/*": [
+          "./repos/*"
         ],
         "@shared/*": [
           "./shared/*"
