@@ -38,7 +38,8 @@ func (u *UserRepo) FindByEmail(email string) (*models.User, error) {
 // Fetch all users.
 func (u *UserRepo) FetchAll() (*[]models.User, error) {
 	var users []models.User
-	resp := u.Db.Find(&users)
+	// pick up here, check this
+	resp := u.Db.Omit("UserCreds").Find(&users)
 	if resp.Error != nil {
 		return nil, resp.Error
 	}
