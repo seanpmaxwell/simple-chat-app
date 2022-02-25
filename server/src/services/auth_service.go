@@ -17,8 +17,8 @@ type AuthService struct {
 	PwdUtil  *util.PwdUtil
 }
 
-// New()
-func NewAuthService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *AuthService {
+// Wire()
+func WireAuthService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *AuthService {
 	return &AuthService{userRepo, pwdUtil}
 }
 

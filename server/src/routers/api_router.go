@@ -5,7 +5,7 @@ type ApiRouter struct {
 	UserRouter *UserRouter
 }
 
-// New()
-func NewApiRouter(authRouter *AuthRouter, userRouter *UserRouter) *ApiRouter {
+// Wire()
+func WireApiRouter(authRouter *AuthRouter, userRouter *UserRouter) *ApiRouter {
 	return &ApiRouter{authRouter, userRouter}
 }

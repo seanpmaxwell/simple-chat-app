@@ -11,8 +11,8 @@ type UserService struct {
 	PwdUtil  *util.PwdUtil
 }
 
-// New()
-func NewUserService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *UserService {
+// Wire()
+func WireUserService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *UserService {
 	return &UserService{userRepo, pwdUtil}
 }
 

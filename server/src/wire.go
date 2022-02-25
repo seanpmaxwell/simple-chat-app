@@ -16,18 +16,18 @@ import (
 // Setup dependency injection
 func InitializeServer() (*Server, error) {
 	wire.Build(
-		shared.NewEnvVars,
-		newDbConn,
-		util.NewJwtUtil,
-		util.NewPwdUtil,
-		repos.NewUserRepo,
-		services.NewUserService,
-		services.NewAuthService,
-		routers.NewMiddleware,
-		routers.NewUserRouter,
-		routers.NewAuthRouter,
-		routers.NewApiRouter,
-		NewServer,
+		shared.WireEnvVars,
+		WireDbConn,
+		util.WireJwtUtil,
+		util.WirePwdUtil,
+		repos.WireUserRepo,
+		services.WireUserService,
+		services.WireAuthService,
+		routers.WireMiddleware,
+		routers.WireUserRouter,
+		routers.WireAuthRouter,
+		routers.WireApiRouter,
+		WireServer,
 	)
 	return &Server{}, nil
 }

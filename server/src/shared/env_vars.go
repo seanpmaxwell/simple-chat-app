@@ -33,8 +33,8 @@ type EnvVars struct {
 	CookieParams *CookieParams
 }
 
-// Load env file and call functions that require parsing.
-func NewEnvVars() *EnvVars {
+// Wire()
+func WireEnvVars() *EnvVars {
 	var err error
 	// Database
 	dbHost := os.Getenv("DATABASE_HOST")

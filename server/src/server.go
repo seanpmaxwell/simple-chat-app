@@ -17,8 +17,8 @@ type Server struct {
 	middleware *routers.Middlware
 }
 
-// New() and Dependency-Injection.
-func NewServer(
+// Wire() and Dependency-Injection.
+func WireServer(
 	envVars *shared.EnvVars,
 	apiRouter *routers.ApiRouter,
 	middleware *routers.Middlware,

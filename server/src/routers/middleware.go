@@ -21,8 +21,8 @@ type Middlware struct {
 	JwtUtil *util.JwtUtil
 }
 
-// New()
-func NewMiddleware(envVars *shared.EnvVars, jwtUtil *util.JwtUtil) *Middlware {
+// Wire()
+func WireMiddleware(envVars *shared.EnvVars, jwtUtil *util.JwtUtil) *Middlware {
 	return &Middlware{envVars, jwtUtil}
 }
 

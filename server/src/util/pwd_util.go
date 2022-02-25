@@ -4,8 +4,8 @@ import "golang.org/x/crypto/bcrypt"
 
 type PwdUtil struct{}
 
-// New()
-func NewPwdUtil() *PwdUtil {
+// Wire()
+func WirePwdUtil() *PwdUtil {
 	return &PwdUtil{}
 }
 

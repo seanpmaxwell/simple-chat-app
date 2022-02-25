@@ -30,8 +30,8 @@ type JwtUtil struct {
 	EnvVars *shared.EnvVars
 }
 
-// New()
-func NewJwtUtil(envVars *shared.EnvVars) *JwtUtil {
+// Wire()
+func WireJwtUtil(envVars *shared.EnvVars) *JwtUtil {
 	return &JwtUtil{EnvVars: envVars}
 }
 

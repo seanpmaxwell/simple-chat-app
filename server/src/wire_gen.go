@@ -16,18 +16,19 @@ import (
 
 // Injectors from wire.go:
 
+// Setup dependency injection
 func InitializeServer() (*Server, error) {
-	envVars := shared.NewEnvVars()
-	jwtUtil := util.NewJwtUtil(envVars)
-	db := newDbConn(envVars)
-	userRepo := repos.NewUserRepo(db)
-	pwdUtil := util.NewPwdUtil()
-	authService := services.NewAuthService(userRepo, pwdUtil)
-	authRouter := routers.NewAuthRouter(envVars, jwtUtil, authService)
-	userService := services.NewUserService(userRepo, pwdUtil)
-	userRouter := routers.NewUserRouter(userService)
-	apiRouter := routers.NewApiRouter(authRouter, userRouter)
-	middlware := routers.NewMiddleware(envVars, jwtUtil)
-	server := NewServer(envVars, apiRouter, middlware)
+	envVars := shared.WireEnvVars()
+	jwtUtil := util.WireJwtUtil(envVars)
+	db := WireDbConn(envVars)
+	userRepo := repos.WireUserRepo(db)
+	pwdUtil := util.WirePwdUtil()
+	authService := services.WireAuthService(userRepo, pwdUtil)
+	authRouter := routers.WireAuthRouter(envVars, jwtUtil, authService)
+	userService := services.WireUserService(userRepo, pwdUtil)
+	userRouter := routers.WireUserRouter(userService)
+	apiRouter := routers.WireApiRouter(authRouter, userRouter)
+	middlware := routers.WireMiddleware(envVars, jwtUtil)
+	server := WireServer(envVars, apiRouter, middlware)
 	return server, nil
 }

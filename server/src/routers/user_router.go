@@ -25,8 +25,8 @@ type UserRouter struct {
 	UserService *services.UserService
 }
 
-// New()
-func NewUserRouter(userService *services.UserService) *UserRouter {
+// Wire()
+func WireUserRouter(userService *services.UserService) *UserRouter {
 	return &UserRouter{userService}
 }
 

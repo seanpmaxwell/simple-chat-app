@@ -21,8 +21,8 @@ type AuthRouter struct {
 	AuthService *services.AuthService
 }
 
-// New()
-func NewAuthRouter(
+// Wire()
+func WireAuthRouter(
 	envVars *shared.EnvVars,
 	jwtUtil *util.JwtUtil,
 	authService *services.AuthService,
