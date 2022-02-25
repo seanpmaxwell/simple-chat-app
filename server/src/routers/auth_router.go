@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"simple-chat-app/server/src/services"
 	"simple-chat-app/server/src/shared"
+	"simple-chat-app/server/src/shared/constants"
 	"simple-chat-app/server/src/util"
 
 	"github.com/gin-gonic/gin"
@@ -74,7 +75,7 @@ func (a *AuthRouter) Logout(c *gin.Context) {
 func (a *AuthRouter) SessionData(c *gin.Context) {
 	// Check if the user is not logged in, if not that's okay,
 	// there just won't be any session data
-	session, exists := c.Get(shared.SessionDataKey())
+	session, exists := c.Get(constants.SessionDataKey())
 	if !exists {
 		c.JSON(http.StatusOK, gin.H{"logged-in": false})
 		return

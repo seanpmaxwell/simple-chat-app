@@ -3,6 +3,7 @@ package routers
 import (
 	"net/http"
 	"simple-chat-app/server/src/shared"
+	"simple-chat-app/server/src/shared/constants"
 	"simple-chat-app/server/src/util"
 	"strings"
 
@@ -53,6 +54,6 @@ func (m *Middlware) SessionMw(c *gin.Context) {
 		Name:  (*data)["name"].(string),
 	}
 	// Set session Data
-	c.Set(shared.SessionDataKey(), session)
+	c.Set(constants.SessionDataKey(), session)
 	c.Next()
 }

@@ -1,4 +1,4 @@
-package shared
+package constants
 
 const (
 	sessionDataKey = "session-data"
