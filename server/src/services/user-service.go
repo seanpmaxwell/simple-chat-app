@@ -11,23 +11,17 @@ type UserService struct {
 	PwdUtil  *util.PwdUtil
 }
 
-/**
-New()
-*/
+// New()
 func NewUserService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *UserService {
 	return &UserService{userRepo, pwdUtil}
 }
 
-/**
-Fetch all users.
-*/
+// Fetch all users.
 func (u *UserService) FetchAll() (*[]models.User, error) {
 	return u.UserRepo.FetchAll()
 }
 
-/**
-Add a new user object.
-*/
+// Add a new user object.
 func (u *UserService) Add(email string, name string, password string) error {
 	// Save the user
 	user, err := u.UserRepo.Add(email, name)
@@ -46,9 +40,7 @@ func (u *UserService) Add(email string, name string, password string) error {
 	return nil
 }
 
-/**
-Update user's email and name.
-*/
+// Update user's email and name.
 func (u *UserService) Update(id uint, email string, name string) error {
 	user, err := u.UserRepo.FindById(id)
 	if err != nil {
@@ -58,9 +50,7 @@ func (u *UserService) Update(id uint, email string, name string) error {
 	return nil
 }
 
-/**
-Delete one user
-*/
+// Delete one user
 func (u *UserService) Delete(id uint) error {
 	return u.UserRepo.Delete(id)
 }

@@ -5,9 +5,7 @@ type ApiRouter struct {
 	UserRouter *UserRouter
 }
 
-/**
-New()
-*/
+// New()
 func NewApiRouter(authRouter *AuthRouter, userRouter *UserRouter) *ApiRouter {
 	return &ApiRouter{authRouter, userRouter}
 }

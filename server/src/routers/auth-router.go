@@ -20,9 +20,7 @@ type AuthRouter struct {
 	AuthService *services.AuthService
 }
 
-/**
-New()
-*/
+// New()
 func NewAuthRouter(
 	envVars *shared.EnvVars,
 	jwtUtil *util.JwtUtil,
@@ -31,9 +29,7 @@ func NewAuthRouter(
 	return &AuthRouter{envVars, jwtUtil, authService}
 }
 
-/**
-URL: "/api/auth/login"
-*/
+// URL: "/api/auth/login"
 func (a *AuthRouter) Login(c *gin.Context) {
 	// Set req data
 	var loginReq LoginReq
@@ -63,10 +59,8 @@ func (a *AuthRouter) Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }
 
-/**
-- URL: "/api/auth/logout"
-- Logout user by setting cookies maxAge = 0 and removing jwtstr
-*/
+// URL: "/api/auth/logout"
+// Logout user by setting cookies maxAge = 0 and removing jwtstr
 func (a *AuthRouter) Logout(c *gin.Context) {
 	// Set the cookie
 	cookieParams := a.EnvVars.CookieParams
@@ -76,9 +70,7 @@ func (a *AuthRouter) Logout(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }
 
-/**
-URL: "/api/auth/session"
-*/
+// URL: "/api/auth/session"
 func (a *AuthRouter) SessionData(c *gin.Context) {
 	// Check if the user is not logged in, if not that's okay,
 	// there just won't be any session data

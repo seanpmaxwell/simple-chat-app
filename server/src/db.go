@@ -13,9 +13,7 @@ const (
 	dnsStr = "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable"
 )
 
-/**
-https://github.com/go-gorm/postgres
-*/
+// https://github.com/go-gorm/postgres
 func newDbConn(envVars *shared.EnvVars) *gorm.DB {
 	// Setup connection string
 	dbParams := envVars.DbParams

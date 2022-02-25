@@ -17,9 +17,7 @@ type Server struct {
 	middleware *routers.Middlware
 }
 
-/**
-New() and Dependency-Injection.
-*/
+// New() and Dependency-Injection.
 func NewServer(
 	envVars *shared.EnvVars,
 	apiRouter *routers.ApiRouter,
@@ -28,9 +26,7 @@ func NewServer(
 	return &Server{envVars, apiRouter, middleware}
 }
 
-/**
-Start the gin engine.
-*/
+// Start the gin engine.
 func (s *Server) Start() {
 	engine := gin.Default()
 	engine.GET("/", func(c *gin.Context) {
@@ -41,9 +37,7 @@ func (s *Server) Start() {
 	engine.Run()
 }
 
-/**
-Setup all routes
-*/
+// Setup all routes
 func (s *Server) addRoutes(engine *gin.Engine) {
 	//// Setup API routes
 	apiGroup := engine.Group("/api")

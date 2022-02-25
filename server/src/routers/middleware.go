@@ -20,20 +20,15 @@ type Middlware struct {
 	JwtUtil *util.JwtUtil
 }
 
-/**
-New()
-*/
+// New()
 func NewMiddleware(envVars *shared.EnvVars, jwtUtil *util.JwtUtil) *Middlware {
 	return &Middlware{envVars, jwtUtil}
 }
 
-/**
-Check the jwt-cookie is present.
-*/
+// Check the jwt-cookie is present.
 func (m *Middlware) SessionMw(c *gin.Context) {
 	// Get the jwt string from the cookie. For the session data route if the jwt is not present
 	// just continue and assument the
-
 	jwtstr, err := c.Cookie(m.EnvVars.CookieParams.Name)
 	if err != nil || jwtstr == "" {
 		if strings.HasSuffix(c.Request.URL.Path, "/api/auth/session-data") {

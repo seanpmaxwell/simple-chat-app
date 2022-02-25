@@ -30,16 +30,12 @@ type JwtUtil struct {
 	EnvVars *shared.EnvVars
 }
 
-/**
-New()
-*/
+// New()
 func NewJwtUtil(envVars *shared.EnvVars) *JwtUtil {
 	return &JwtUtil{EnvVars: envVars}
 }
 
-/**
-Get a jwt string with the data encoded.
-*/
+// Get a jwt string with the data encoded.
 func (j *JwtUtil) Sign(data interface{}) (string, error) {
 	jwtParams := j.EnvVars.JwtParams
 	// If passed, create a *jwt.Token with the claims
@@ -60,9 +56,7 @@ func (j *JwtUtil) Sign(data interface{}) (string, error) {
 	return tokenStr, err
 }
 
-/**
-Parse a jwt string and return the data.
-*/
+// Parse a jwt string and return the data.
 func (j *JwtUtil) Parse(jwtstr string) (*map[string]interface{}, error) {
 	// Parse the the token, Don't forget to validate the alg is what you expect.
 	token, err := jwt.Parse(jwtstr, j.parseHelper)

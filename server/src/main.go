@@ -7,9 +7,7 @@ import (
 	"github.com/joho/godotenv"
 )
 
-/**
-Load environment variables from ".env" files.
-*/
+// Load environment variables from ".env" files.
 func init() {
 	env := os.Args[1]
 	cwd, _ := os.Getwd()
@@ -20,9 +18,7 @@ func init() {
 	}
 }
 
-/**
-Main()
-*/
+// Main()
 func main() {
 	server, err := InitializeServer()
 	if err != nil {

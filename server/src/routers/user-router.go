@@ -25,16 +25,12 @@ type UserRouter struct {
 	UserService *services.UserService
 }
 
-/**
-New()
-*/
+// New()
 func NewUserRouter(userService *services.UserService) *UserRouter {
 	return &UserRouter{userService}
 }
 
-/**
-Fetch all users.
-*/
+// Fetch all users.
 func (u *UserRouter) FetchAll(c *gin.Context) {
 	users, err := u.UserService.FetchAll()
 	if err != nil {
@@ -44,9 +40,7 @@ func (u *UserRouter) FetchAll(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"users": users})
 }
 
-/**
-Add a new user.
-*/
+// Add a new user.
 func (u *UserRouter) Add(c *gin.Context) {
 	// Extract user from json
 	var req AddUserReq
@@ -64,9 +58,7 @@ func (u *UserRouter) Add(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"status": "success"})
 }
 
-/**
-Update user's email and name.
-*/
+// Update user's email and name.
 func (u *UserRouter) Update(c *gin.Context) {
 	// Extract user from json
 	var req UpdateUserReq
@@ -84,9 +76,7 @@ func (u *UserRouter) Update(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"status": "success"})
 }
 
-/**
-Delete one user.
-*/
+// Delete one user.
 func (u *UserRouter) Delete(c *gin.Context) {
 	// Convert query string to unint
 	id, err := strconv.ParseUint(c.Param("id"), 10, 32)

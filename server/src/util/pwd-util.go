@@ -4,16 +4,12 @@ import "golang.org/x/crypto/bcrypt"
 
 type PwdUtil struct{}
 
-/**
-New()
-*/
+// New()
 func NewPwdUtil() *PwdUtil {
 	return &PwdUtil{}
 }
 
-/**
-Generate a hash from a password.
-*/
+// Generate a hash from a password.
 func (p *PwdUtil) Hash(pwd string) (string, error) {
 	hash, err := bcrypt.GenerateFromPassword([]byte(pwd), bcrypt.DefaultCost)
 	if err != nil {
@@ -22,9 +18,7 @@ func (p *PwdUtil) Hash(pwd string) (string, error) {
 	return string(hash), nil
 }
 
-/**
-Check password against hash.
-*/
+// Check password against hash.
 func (p *PwdUtil) Verify(pwdHash string, password string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(pwdHash), []byte(password))
 	return err == nil

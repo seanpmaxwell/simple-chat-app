@@ -17,16 +17,12 @@ type AuthService struct {
 	PwdUtil  *util.PwdUtil
 }
 
-/**
-New()
-*/
+// New()
 func NewAuthService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *AuthService {
 	return &AuthService{userRepo, pwdUtil}
 }
 
-/**
-Verify user cre
-*/
+// Verify user credentials
 func (a *AuthService) VerifyAndFetchUser(email string, password string) (*models.User, error) {
 	// Search for the user
 	user, err := a.UserRepo.FindByEmail(email)

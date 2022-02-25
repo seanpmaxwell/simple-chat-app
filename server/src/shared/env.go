@@ -33,9 +33,7 @@ type EnvVars struct {
 	CookieParams *CookieParams
 }
 
-/**
-Load env file and call functions that require parsing.
-*/
+// Load env file and call functions that require parsing.
 func NewEnvVars() *EnvVars {
 	var err error
 	// Database

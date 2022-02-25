@@ -13,6 +13,7 @@ import (
 	"github.com/google/wire"
 )
 
+// Setup dependency injection
 func InitializeServer() (*Server, error) {
 	wire.Build(
 		shared.NewEnvVars,
