@@ -17,16 +17,15 @@ import { getInitials } from '../shared/functions';
 const routes = ['/users', '/chat'];
 
 
-interface IProps {
-    sessionData: ISessionData;
-    fetchSessionData: () => Promise<void>;
-}
-
 interface IState {
     selectedTab: number;
     menuAnchor: HTMLElement | null;
 }
 
+interface IProps {
+    sessionData: ISessionData;
+    fetchSessionData: () => Promise<void>;
+}
 
 function TopBar(props: IProps) {
     const [state, setState ] = useSetState(init()),

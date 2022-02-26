@@ -18,6 +18,7 @@ enum LoginStatus {
     Passed,
 }
 
+
 type TInitState = ReturnType<typeof init>;
 
 interface IProps {

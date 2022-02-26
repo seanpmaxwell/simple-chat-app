@@ -16,13 +16,13 @@ export enum Modes {
     Edit,
 }
 
+
+type TInitState = ReturnType<typeof init>;
+
 interface IProps {
     mode: Modes;
     setMode: (mode: Modes) => void;
 }
-
-type TInitState = ReturnType<typeof init>;
-
 
 function UserForm(props: IProps): JSX.Element {
     const [state, setState ] = useSetState(init());
