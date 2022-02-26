@@ -1,9 +1,6 @@
 
 /**
  * Convert 'John Paul Smith' to 'JS'.
- * 
- * @param name 
- * @returns 
  */
 export function getInitials(name: string): string {
     if (!name) {

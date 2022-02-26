@@ -3,9 +3,6 @@ import { useState, useCallback } from 'react';
 
 /**
  * Do setState like react class component.
- * 
- * @param initialState 
- * @returns 
  */
 export function useSetState<T extends object>(
     initialState: T,

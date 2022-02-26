@@ -25,6 +25,9 @@ interface IProps {
 }
 
 
+/**
+ * Main render.
+ */
 function LoginForm(props: IProps): JSX.Element {
     const [state, setState ] = useSetState(init());
     const navigate = useNavigate();
@@ -86,11 +89,8 @@ function LoginForm(props: IProps): JSX.Element {
     );
 }
 
-
 /**
- * init()
- * 
- * @returns 
+ * initial state
  */
 function init() {
     return {
@@ -100,12 +100,8 @@ function init() {
     };
 }
 
-
 /**
- * Login a user,
- * 
- * @param state 
- * @returns 
+ * Call login API when login button pushed.
  */
 async function loginUser(state: TInitState): Promise<LoginStatus> {
     const { email, password } = state;
@@ -120,4 +116,5 @@ async function loginUser(state: TInitState): Promise<LoginStatus> {
 }
 
 
+// Export default
 export default LoginForm;

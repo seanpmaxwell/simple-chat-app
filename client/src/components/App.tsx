@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import CssBaseline from '@mui/material/CssBaseline';
 
-import Home from './Home/Home';
+import Home from './home/Home';
 import NoPage from './no-page/NoPage';
 import './App.css';
 import TopBar from './top-bar/Topbar';
@@ -14,7 +14,9 @@ import { useSetState } from './shared/hooks';
 
 
 
-
+/**
+ * Main render.
+ */
 function App() {
     const [state, setState] = useSetState(init());
     // Set fetch-session-data function
@@ -58,11 +60,8 @@ function App() {
     );
 }
 
-
 /**
- * init()
- * 
- * @returns 
+ * Get initial-state.
  */
 function init() {
     return {
@@ -70,11 +69,8 @@ function init() {
     };
 }
 
-
 /**
  * Get blank session data.
- * 
- * @returns 
  */
 function getEmptySessionData(): ISessionData {
     return {
@@ -85,11 +81,8 @@ function getEmptySessionData(): ISessionData {
     }
 }
 
-
 /**
  * Fetch session data from jwt.
- * 
- * @returns 
  */
 async function getSessionData(): Promise<ISessionData> {
     try {
