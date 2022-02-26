@@ -6,7 +6,7 @@ import {
     styled,
 } from '@mui/material';
 
-import { PageWrapper } from '../shared/components';
+import { PageWrapper } from '../shared/components/PageWrapper';
 import LoginForm from './LoginForm';
 
 

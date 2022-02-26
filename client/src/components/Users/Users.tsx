@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { PageWrapper } from '../shared/components';
+import { PageWrapper } from '../shared/components/PageWrapper';
 import { useSetState } from '../shared/hooks';
 import UserForm, { Modes } from './UserForm';
 import usersHttp, { IUser } from '../shared/http/users-http';
