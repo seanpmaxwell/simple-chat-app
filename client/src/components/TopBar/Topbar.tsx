@@ -25,29 +25,22 @@ interface IProps {
 }
 
 interface IState {
-    selectedTab: number;
+    selectedTab: number; // idx in the "routes" array above.
     menuAnchor: HTMLElement | null;
 }
 
 function TopBar(props: IProps) {
     const [state, setState ] = useSetState(init()),
         location = useLocation(),
-        navigate = useNavigate();
+        navigate = useNavigate(),
+        { sessionData } = props,
+        { pathname } = location,
+        loggedIn = (sessionData.id > -1);
     // On load
     useEffect(() => {
-        const loggedIn = (props.sessionData.id > -1),
-            path = location.pathname;
-        // Navigate to home if not logged in and not at home.
-        if (!props.sessionData.waiting && !loggedIn && path !== '/') {
-            navigate('/');
-        }
-        // Listen for changes in the route.
-        let idxOfRouteInUrl = routes.indexOf(location.pathname);
-        if (idxOfRouteInUrl === -1 || !loggedIn) {
-            idxOfRouteInUrl = 0;
-        }
-        setState({selectedTab: idxOfRouteInUrl});
-    }, [location, navigate, props.sessionData.id, props.sessionData.waiting, setState]);
+        shouldNavHome(sessionData, pathname, loggedIn) && navigate('/');
+        setState({selectedTab: getSelectedTabIdx(pathname, loggedIn)});
+    }, [loggedIn, navigate, pathname, sessionData, setState]);
     // Return
     return (
         <>
@@ -86,19 +79,19 @@ function TopBar(props: IProps) {
                                 {...a11yProps(2)}
                                 sx={{
                                     position: 'absolute',
-                                    right: '0'
+                                    right: '0',
                                 }}
                                 onClick={e => {
                                     e.preventDefault();
                                     setState({menuAnchor: e.currentTarget});
                                 }}
-                            />
+                            />,
                         ] : [
                             <NavTab
                                 key={0}
                                 label='Home'
                                 {...a11yProps(0)}
-                            />
+                            />,
                         ]}
                         
                     </Tabs>
@@ -150,6 +143,24 @@ function init(): IState {
         selectedTab: 0,
         menuAnchor: null,
     };
+}
+
+/**
+ * Determine wether useEffect should nav home. Yes if not logged in and not already at home.
+ */
+function shouldNavHome(sessionData: ISessionData, pathname: string, loggedIn: boolean): boolean {
+    return (!sessionData.waiting && !loggedIn && pathname !== '/');
+}
+
+/**
+ * Help set the selected tab by getting the idx for it in the "routes" array above.
+ */
+function getSelectedTabIdx(pathname: string, loggedIn: boolean): number {
+    let idxOfRouteInUrl = routes.indexOf(pathname);
+    if (idxOfRouteInUrl === -1 || !loggedIn) {
+        idxOfRouteInUrl = 0;
+    }
+    return idxOfRouteInUrl;
 }
 
 /**

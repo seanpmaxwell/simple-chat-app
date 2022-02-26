@@ -1,5 +1,3 @@
-import react from 'react';
-
 import {
     Grid,
     Paper,

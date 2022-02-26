@@ -22,10 +22,10 @@ function App() {
     // Set fetch-session-data function
     const fetchSessionData = useCallback(() => {
         return getSessionData().then(sessionData => setState({sessionData}));
-    }, [setState])
+    }, [setState]);
     // On load
     useEffect(() => {
-        fetchSessionData()
+        fetchSessionData();
     }, [fetchSessionData]);
     // Return
     return (
@@ -79,7 +79,7 @@ function getEmptySessionData(): ISessionData {
         email: '',
         name: '',
         waiting: true,
-    }
+    };
 }
 
 /**
