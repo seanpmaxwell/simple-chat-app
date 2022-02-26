@@ -8,9 +8,6 @@ interface IPageWrapperProps {
 
 /**
  * Standard container for major URL pages.
- * 
- * @param props
- * @returns 
  */
 export function PageWrapper(props: IPageWrapperProps): JSX.Element {
     return (

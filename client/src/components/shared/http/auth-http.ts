@@ -20,36 +20,25 @@ export interface ISessionData {
 
 /**
  * Login user. Return a boolean letting user know if passed or failed.
- * 
- * @param email 
- * @param password 
- * @returns 
  */
 async function login(email: string, password: string): Promise<boolean> {
     const resp = await http(routes.login, {email, password});
     return resp.passed;
 }
 
-
 /**
  * Delete the session cookie.
- * 
- * @returns 
  */
 function logout(): Promise<void> {
     return http(routes.logout);
 }
 
-
 /**
  * Fetch session data from jwt.
- * 
- * @returns 
  */
 function getSessionData(): Promise<ISessionData> {
     return http(routes.sessionData);
 }   
-
 
 
 // Export default

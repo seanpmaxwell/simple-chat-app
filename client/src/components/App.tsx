@@ -3,12 +3,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import CssBaseline from '@mui/material/CssBaseline';
 
-import Home from './home/Home';
-import NoPage from './no-page/NoPage';
+import Home from './Home/Home';
+import NoPage from './NoPage/NoPage';
 import './App.css';
-import TopBar from './top-bar/Topbar';
+import TopBar from './TopBar/Topbar';
 import Users from './users/Users';
-import Chat from './chat/Chat';
+import Chat from './Chat/Chat';
 import authHttp, { ISessionData } from './shared/http/auth-http';
 import { useSetState } from './shared/hooks';
 

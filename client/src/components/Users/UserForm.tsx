@@ -25,7 +25,7 @@ type TInitState = ReturnType<typeof init>;
 
 
 /**
- * Main render.
+ * UserForm
  */
 function UserForm(props: IProps): JSX.Element {
     const [state, setState ] = useSetState(init());

@@ -15,7 +15,7 @@ interface IProps {
 }
 
 /**
- * Main render.
+ * Home.
  */
 function Home(props: IProps): JSX.Element {
     return (<PageWrapper>
@@ -51,4 +51,5 @@ const LoginPaper = styled(Paper)(({ theme }) => ({
 }));
 
 
+// Export default.
 export default Home;

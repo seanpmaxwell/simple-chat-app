@@ -128,12 +128,14 @@ function TopBar(props: IProps) {
     );
 }
 
-
 const NavTab = styled(Tab)({
     fontWeight: 'bold',
 });
 
 
+/**
+ * Get tab props.
+ */
 function a11yProps(index: any) {
     return {
       id: `simple-tab-${index}`,
@@ -141,11 +143,8 @@ function a11yProps(index: any) {
     };
 }
 
-
 /**
- * init()
- * 
- * @returns 
+ * Get initial state.
  */
 function init(): IState {
     return {
@@ -153,7 +152,6 @@ function init(): IState {
         menuAnchor: null,
     };
 }
-
 
 /**
  * Delete the session cookie.

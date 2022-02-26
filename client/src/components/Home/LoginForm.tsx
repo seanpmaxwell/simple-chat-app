@@ -26,7 +26,7 @@ interface IProps {
 
 
 /**
- * Main render.
+ * LoginForm.
  */
 function LoginForm(props: IProps): JSX.Element {
     const [state, setState ] = useSetState(init());
