@@ -26,9 +26,9 @@ const cookieOptions: IOptions = {
     secure: (process.env.SECURE_COOKIE === 'true'),
 } as const;
 
+
 // Init router
 const router = new Router({prefix: p.prefix});
-
 
 /**
  * Login a user by adding a jwt to the cookie.

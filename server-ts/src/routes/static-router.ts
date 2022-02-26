@@ -1,9 +1,8 @@
 import Router from 'koa-router';
 
 
-// Constants
+// Init router
 const router = new Router();
-
 
 /**
  * Serve html.

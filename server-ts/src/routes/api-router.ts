@@ -15,7 +15,7 @@ router.use(getApiMw());
 router.use(authRouter.routes());
 router.use(authRouter.allowedMethods());
 
-// user route
+// user router
 router.use(userRouter.routes());
 router.use(userRouter.allowedMethods());
 

@@ -12,9 +12,9 @@ const p = {
     fetchAll: '/',
 } as const;
 
+
 // Init router
 const router = new Router({prefix: p.prefix});
-
 
 /**
  * Add one user.
