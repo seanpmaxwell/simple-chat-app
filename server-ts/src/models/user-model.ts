@@ -1,4 +1,3 @@
-
 // User Interface
 export interface IUser {
     id?: number;
