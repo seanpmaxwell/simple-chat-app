@@ -21,7 +21,7 @@ function App() {
     const [state, setState] = useSetState(init());
     // Set fetch-session-data function
     const fetchSessionData = useCallback(() => {
-        return getSessionData().then(sessionData => setState({sessionData}));
+        return getSessionData().then(sd => setState({sessionData: sd}));
     }, [setState]);
     // On load
     useEffect(() => {
