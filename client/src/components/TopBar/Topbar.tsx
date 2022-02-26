@@ -1,4 +1,4 @@
-import { useEffect  } from 'react';
+import { useContext, useEffect  } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 
 import { styled } from '@mui/material/styles';
@@ -12,35 +12,33 @@ import Tab from '@mui/material/Tab';
 import { useSetState } from '../shared/hooks';
 import authHttp, { ISessionData } from '../shared/http/auth-http';
 import { getInitials } from '../shared/functions';
+import { appCtx } from '../App';
 
 
 // Constants
 const routes = ['/users', '/chat'];
 
 
-
-interface IProps {
-    sessionData: ISessionData;
-    fetchSessionData: () => Promise<void>;
-}
+// **** TopBar() **** //
 
 interface IState {
     selectedTab: number; // idx in the "routes" array above.
     menuAnchor: HTMLElement | null;
 }
 
-function TopBar(props: IProps) {
+function TopBar() {
     const [state, setState ] = useSetState(init()),
+        ctx = useContext(appCtx),
         location = useLocation(),
         navigate = useNavigate(),
-        { sessionData } = props,
         { pathname } = location,
-        loggedIn = (sessionData.id > -1);
+        loggedIn = (ctx.sessionData.id > -1);
+        
     // On load
     useEffect(() => {
-        shouldNavHome(sessionData, pathname, loggedIn) && navigate('/');
+        shouldNavHome(ctx.sessionData, pathname, loggedIn) && navigate('/');
         setState({selectedTab: getSelectedTabIdx(pathname, loggedIn)});
-    }, [loggedIn, navigate, pathname, sessionData, setState]);
+    }, [loggedIn, navigate, pathname, ctx.sessionData, setState]);
     // Return
     return (
         <>
@@ -59,7 +57,7 @@ function TopBar(props: IProps) {
                             navigate(routes[newVal]);
                         }}
                     >
-                        {props.sessionData.id !== -1 ? [
+                        {ctx.sessionData.id !== -1 ? [
                             <NavTab
                                 value={0}
                                 key={0}
@@ -75,7 +73,7 @@ function TopBar(props: IProps) {
                             <NavTab
                                 value={-1}
                                 key={2} 
-                                label={getInitials(props.sessionData.name)}
+                                label={getInitials(ctx.sessionData.name)}
                                 {...a11yProps(2)}
                                 sx={{
                                     position: 'absolute',
@@ -109,7 +107,7 @@ function TopBar(props: IProps) {
                         const done = await logout();
                         if (done) {
                             setState({menuAnchor: null});
-                            await props.fetchSessionData();
+                            await ctx.fetchSessionData();
                             navigate('/');
                         }
                     }}>

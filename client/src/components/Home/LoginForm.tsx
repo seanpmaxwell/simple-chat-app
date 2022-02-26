@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -9,6 +10,7 @@ import {
 
 import { useSetState } from '../shared/hooks';
 import authHttp from '../shared/http/auth-http';
+import { appCtx } from '../App';
 
 
 enum LoginStatus {
@@ -19,9 +21,7 @@ enum LoginStatus {
 }
 
 
-interface IProps {
-    fetchSessionData: () => Promise<void>;
-}
+// **** LoginForm() **** //
 
 interface IState {
     email: string;
@@ -29,9 +29,11 @@ interface IState {
     loginStatus: LoginStatus
 }
 
-function LoginForm(props: IProps): JSX.Element {
-    const [state, setState ] = useSetState(init());
-    const navigate = useNavigate();
+function LoginForm(): JSX.Element {
+    const [state, setState ] = useSetState(init()),
+    ctx = useContext(appCtx),
+    navigate = useNavigate();
+    // Return
     return (
         <Grid
             container={true}
@@ -76,8 +78,8 @@ function LoginForm(props: IProps): JSX.Element {
                         setState({loginStatus: LoginStatus.Waiting});
                         const loginStatus = await loginUser(state);
                         if (loginStatus === LoginStatus.Passed) {
-                            await props.fetchSessionData();
-                            navigate('/users')
+                            await ctx.fetchSessionData();
+                            navigate('/users');
                         } else {
                             setState({loginStatus});
                         }

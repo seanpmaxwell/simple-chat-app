@@ -8,11 +8,7 @@ import { PageWrapper } from '../shared/components/PageWrapper';
 import LoginForm from './LoginForm';
 
 
-interface IProps {
-    fetchSessionData: () => Promise<void>;
-}
-
-function Home(props: IProps): JSX.Element {
+function Home(): JSX.Element {
     return (<PageWrapper>
         <Grid
             container={true}
@@ -31,7 +27,7 @@ function Home(props: IProps): JSX.Element {
                 }}
             >
                 <LoginPaper elevation={12}>
-                    <LoginForm fetchSessionData={() => props.fetchSessionData()}/>
+                    <LoginForm/>
                 </LoginPaper>
             </Grid>
         </Grid>

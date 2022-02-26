@@ -13,6 +13,21 @@ import authHttp, { ISessionData } from './shared/http/auth-http';
 import { useSetState } from './shared/hooks';
 
 
+// **** Setup Content **** //
+
+export let appCtx = React.createContext<IContext>({
+    sessionData: getEmptySessionData(),
+    fetchSessionData: () => Promise.resolve(),
+});
+
+interface IContext {
+    sessionData: ISessionData
+    fetchSessionData: () => Promise<void>;
+}
+
+
+// **** App() **** //
+
 interface IState {
     sessionData: ISessionData;
 }
@@ -30,32 +45,36 @@ function App() {
     // Return
     return (
         <div>
-            <React.Fragment>
-                <CssBaseline />
-                <BrowserRouter>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={
-                                <TopBar
-                                    sessionData={state.sessionData}
-                                    fetchSessionData={() => fetchSessionData()}
-                                />
-                            }
-                        >
+            <appCtx.Provider
+                value={{
+                    sessionData: state.sessionData,
+                    fetchSessionData,
+                }}
+            >
+                <React.Fragment>
+                    <CssBaseline />
+                    <BrowserRouter>
+                        <Routes>
                             <Route
-                                index={true}
+                                path="/"
                                 element={
-                                    <Home fetchSessionData={() => fetchSessionData()}/>
+                                    <TopBar/>
                                 }
-                            />
-                            <Route path="users" element={<Users />} />
-                            <Route path="chat" element={<Chat />} />
-                            <Route path="*" element={<NoPage />} />
-                        </Route>
-                    </Routes>
-                </BrowserRouter>
-            </React.Fragment>
+                            >
+                                <Route
+                                    index={true}
+                                    element={
+                                        <Home/>
+                                    }
+                                />
+                                <Route path="users" element={<Users />} />
+                                <Route path="chat" element={<Chat />} />
+                                <Route path="*" element={<NoPage />} />
+                            </Route>
+                        </Routes>
+                    </BrowserRouter>
+                </React.Fragment>
+            </appCtx.Provider>
         </div>
     );
 }
