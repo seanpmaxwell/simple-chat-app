@@ -142,7 +142,9 @@ function a11yProps(index: any) {
 }
 
 
-// Get Initial State
+/**
+ * Get Initial State
+ */
 function init(): IState {
     return {
         selectedTab: 0,
@@ -150,7 +152,9 @@ function init(): IState {
     };
 }
 
-// Logout a user
+/**
+ * Logout a user
+ */
 async function logout(): Promise<boolean> {
     let done = false;
     try {

@@ -90,7 +90,10 @@ function LoginForm(props: IProps): JSX.Element {
     );
 }
 
-// Initial State
+
+/**
+ * Initial State
+ */
 function init(): IState {
     return {
         email: 'foo@barr',
@@ -99,7 +102,9 @@ function init(): IState {
     };
 }
 
-// Login User
+/**
+ * Login User
+ */
 async function loginUser(state: IState): Promise<LoginStatus> {
     const { email, password } = state;
     let status = LoginStatus.Failed;

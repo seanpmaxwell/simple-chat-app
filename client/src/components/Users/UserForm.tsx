@@ -124,7 +124,9 @@ function UserForm(props: IProps): JSX.Element {
 }
 
 
-// Get Initial State
+/**
+ * Get Initial State
+ */
 function init(): IState {
     return {
         email: '',
@@ -134,7 +136,9 @@ function init(): IState {
     };
 }
 
-// Add a new user
+/**
+ * Add a new user
+ */
 async function addUser(state: IState): Promise<boolean> {
     const { email, name, password } = state;
     let success = false;

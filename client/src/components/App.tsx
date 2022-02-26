@@ -61,14 +61,18 @@ function App() {
 }
 
 
-// Get initial-state
+/**
+ * Get initial-state
+ */
 function init(): IState {
     return {
         sessionData: getEmptySessionData(),
     };
 }
 
-// Get blank session-data (avoid undefined errors before login)
+/**
+ * Get blank session-data (avoid undefined errors before login)
+ */
 function getEmptySessionData(): ISessionData {
     return {
         id: -1,
@@ -78,7 +82,9 @@ function getEmptySessionData(): ISessionData {
     }
 }
 
-// Fetch jwt session-data
+/**
+ * Fetch jwt session-data
+ */
 async function getSessionData(): Promise<ISessionData> {
     try {
         const data = await authHttp.getSessionData();
