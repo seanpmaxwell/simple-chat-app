@@ -4,8 +4,6 @@ import randomstring from 'randomstring';
 
 /**
  * Parse jsonwebtoken, token data is available at "ctx.state.user".
- * 
- * @returns 
  */
 export function getApiMw() {
     return jwt({
@@ -14,11 +12,8 @@ export function getApiMw() {
     }).unless({path: [/^\/api\/auth/]});
 }
 
-
 /**
  * Parse jsonwebtoken, token data is available at "ctx.state.user".
- * 
- * @returns 
  */
 export function getSessionMw() {
     return jwt({

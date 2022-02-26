@@ -20,11 +20,6 @@ export type TSavedUser = Required<IUser>;
 
 /**
  * Get new user instance.
- * 
- * @param email 
- * @param name 
- * @param createdAt 
- * @returns 
  */
 function getNew(
     email?: string,
@@ -38,12 +33,8 @@ function getNew(
     };
 }
 
-
 /**
  * Copy a user object.
- * 
- * @param user 
- * @returns 
  */
 function copy(user: IUser): IUser {
     return {

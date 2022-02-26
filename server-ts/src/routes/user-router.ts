@@ -29,7 +29,6 @@ router.post(p.add, async (ctx) => {
     ctx.status = HttpStatusCodes.CREATED;
 });
 
-
 /**
  * Fetch all.
  */

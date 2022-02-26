@@ -8,7 +8,6 @@ import { tick } from '@shared/functions';
 import { getSessionMw } from './middlewares';
 
 
-
 // Paths
 const p = {
     prefix: '/auth',
@@ -31,7 +30,6 @@ const cookieOptions: IOptions = {
 const router = new Router({prefix: p.prefix});
 
 
-
 /**
  * Login a user by adding a jwt to the cookie.
  */
@@ -52,7 +50,6 @@ router.put(p.login, async (ctx) => {
     ctx.cookies.set((process.env.COOKIE_NAME ?? ''), jwt, cookieOptions);
 });
 
-
 /**
  * Logout the user by deleting the cookie.
  */
@@ -60,7 +57,6 @@ router.put(p.login, async (ctx) => {
     ctx.cookies.set(process.env.COOKIE_NAME ?? '');
     ctx.status = HttpStatusCodes.OK;
 });
-
 
 /**
  * Get the logged in user's basic data.

@@ -14,10 +14,6 @@ interface ILoginResp {
 
 /**
  * Check user creds and return a jwt if they passed.
- * 
- * @param email 
- * @param password 
- * @returns 
  */
 async function login(email: string, password: string): Promise<ILoginResp> {
     // Fetch user
@@ -42,11 +38,8 @@ async function login(email: string, password: string): Promise<ILoginResp> {
     return {passed: true, jwt};
 }
 
-
 /**
  * Encrypt data and return jwt.
- *
- * @param data
  */
 function sign(data: JwtPayload): Promise<string> {
     // Setup secret and options

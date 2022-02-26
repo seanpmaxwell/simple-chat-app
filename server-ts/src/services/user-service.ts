@@ -3,6 +3,7 @@ import User, { IUser, IUserCreds } from '@models/user-model';
 import pwdUtil from '@util/pwd-util';
 
 
+// Errors
 const errors = {
     addOne: 'User cound not be saved',
 } as const;
@@ -10,10 +11,6 @@ const errors = {
 
 /**
  * Add one user.
- * 
- * @param email 
- * @param name 
- * @param password 
  */
 async function addOne(email: string, name: string, password: string): Promise<void> {
     // Save the user
@@ -32,11 +29,8 @@ async function addOne(email: string, name: string, password: string): Promise<vo
     await userRepo.addCreds(creds);
 }
 
-
 /**
  * Fetch all users.
- * 
- * @returns
  */
 function fetchAll(): Promise<IUser[]> {
     return userRepo.fetchAll();
