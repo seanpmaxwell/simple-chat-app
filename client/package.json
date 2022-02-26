@@ -31,6 +31,9 @@
   "eslintConfig": {
     "rules": {
       "semi": "warn",
+      "no-console": [
+        "warn", { "allow": ["error"] }
+      ],
       "comma-dangle": ["warn", {
         "arrays": "always-multiline",
         "objects": "always-multiline",
