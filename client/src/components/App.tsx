@@ -7,16 +7,12 @@ import Home from './Home/Home';
 import NoPage from './NoPage/NoPage';
 import './App.css';
 import TopBar from './TopBar/Topbar';
-import Users from './users/Users';
+import Users from './Users/Users';
 import Chat from './Chat/Chat';
 import authHttp, { ISessionData } from './shared/http/auth-http';
 import { useSetState } from './shared/hooks';
 
 
-
-/**
- * Main render.
- */
 function App() {
     const [state, setState] = useSetState(init());
     // Set fetch-session-data function
@@ -60,18 +56,12 @@ function App() {
     );
 }
 
-/**
- * Get initial-state.
- */
 function init() {
     return {
         sessionData: getEmptySessionData(),
     };
 }
 
-/**
- * Get blank session data.
- */
 function getEmptySessionData(): ISessionData {
     return {
         id: -1,
@@ -81,9 +71,6 @@ function getEmptySessionData(): ISessionData {
     }
 }
 
-/**
- * Fetch session data from jwt.
- */
 async function getSessionData(): Promise<ISessionData> {
     try {
         const data = await authHttp.getSessionData();

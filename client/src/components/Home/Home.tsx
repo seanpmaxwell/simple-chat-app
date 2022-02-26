@@ -14,10 +14,6 @@ interface IProps {
     fetchSessionData: () => Promise<void>;
 }
 
-
-/**
- * Home.
- */
 function Home(props: IProps): JSX.Element {
     return (<PageWrapper>
         <Grid

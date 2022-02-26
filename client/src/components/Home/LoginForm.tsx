@@ -24,10 +24,6 @@ interface IProps {
     fetchSessionData: () => Promise<void>;
 }
 
-
-/**
- * LoginForm.
- */
 function LoginForm(props: IProps): JSX.Element {
     const [state, setState ] = useSetState(init());
     const navigate = useNavigate();
@@ -89,9 +85,6 @@ function LoginForm(props: IProps): JSX.Element {
     );
 }
 
-/**
- * initial state
- */
 function init() {
     return {
         email: 'foo@barr',
@@ -100,9 +93,6 @@ function init() {
     };
 }
 
-/**
- * Call login API when login button pushed.
- */
 async function loginUser(state: TInitState): Promise<LoginStatus> {
     const { email, password } = state;
     let status = LoginStatus.Failed;

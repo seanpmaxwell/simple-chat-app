@@ -24,9 +24,6 @@ interface IProps {
 type TInitState = ReturnType<typeof init>;
 
 
-/**
- * UserForm
- */
 function UserForm(props: IProps): JSX.Element {
     const [state, setState ] = useSetState(init());
     return (
@@ -121,9 +118,6 @@ function UserForm(props: IProps): JSX.Element {
     );
 }
 
-/**
- * Get initial state.
- */
 function init() {
     return {
         email: '',
@@ -133,9 +127,6 @@ function init() {
     };
 }
 
-/**
- * Call http function to add user.
- */
 async function addUser(state: TInitState): Promise<boolean> {
     const { email, name, password } = state;
     let success = false;

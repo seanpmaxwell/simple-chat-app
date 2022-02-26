@@ -133,9 +133,6 @@ const NavTab = styled(Tab)({
 });
 
 
-/**
- * Get tab props.
- */
 function a11yProps(index: any) {
     return {
       id: `simple-tab-${index}`,
@@ -143,9 +140,6 @@ function a11yProps(index: any) {
     };
 }
 
-/**
- * Get initial state.
- */
 function init(): IState {
     return {
         selectedTab: 0,
@@ -153,9 +147,6 @@ function init(): IState {
     };
 }
 
-/**
- * Delete the session cookie.
- */
 async function logout(): Promise<boolean> {
     let done = false;
     try {

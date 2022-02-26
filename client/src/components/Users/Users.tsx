@@ -19,10 +19,6 @@ interface IState {
     users: IUser[];
 }
 
-
-/**
- * Users.
- */
 function Users(): JSX.Element {
     const [state, setState ] = useSetState(init());
     useEffect(() => {
@@ -84,9 +80,6 @@ function Users(): JSX.Element {
     </PageWrapper>);
 }
 
-/**
- * Initial State.
- */
 function init(): IState {
     return {
         userFormMode: Modes.Closed,
@@ -94,9 +87,6 @@ function init(): IState {
     };
 }
 
-/**
- * Fetch users.
- */
 async function fetchUsers(): Promise<IUser[]> {
     let users: IUser[] = [];
     try {
