@@ -17,11 +17,16 @@ export enum Modes {
 }
 
 
-type TInitState = ReturnType<typeof init>;
-
 interface IProps {
     mode: Modes;
     setMode: (mode: Modes) => void;
+}
+
+interface IState {
+    email: string;
+    name: string;
+    password: string
+    addUserFailed: boolean
 }
 
 function UserForm(props: IProps): JSX.Element {
@@ -118,7 +123,9 @@ function UserForm(props: IProps): JSX.Element {
     );
 }
 
-function init() {
+
+// Get Initial State
+function init(): IState {
     return {
         email: '',
         name: '',
@@ -127,7 +134,8 @@ function init() {
     };
 }
 
-async function addUser(state: TInitState): Promise<boolean> {
+// Add a new user
+async function addUser(state: IState): Promise<boolean> {
     const { email, name, password } = state;
     let success = false;
     try {

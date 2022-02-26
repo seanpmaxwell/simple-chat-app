@@ -7,6 +7,8 @@ const prefix = '/api/users',
         fetchAll: ['GET', prefix],
     } as const;
 
+    
+// #### Types #### //
 
 export interface IUser {
     id: number;
@@ -14,6 +16,8 @@ export interface IUser {
     name: string;
 }
 
+
+// #### Functions #### //
 
 /**
  * Login user. Return a boolean letting user know if passed or failed.

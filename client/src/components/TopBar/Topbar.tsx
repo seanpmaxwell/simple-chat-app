@@ -14,17 +14,19 @@ import authHttp, { ISessionData } from '../shared/http/auth-http';
 import { getInitials } from '../shared/functions';
 
 
+// Constants
 const routes = ['/users', '/chat'];
 
 
-interface IState {
-    selectedTab: number;
-    menuAnchor: HTMLElement | null;
-}
 
 interface IProps {
     sessionData: ISessionData;
     fetchSessionData: () => Promise<void>;
+}
+
+interface IState {
+    selectedTab: number;
+    menuAnchor: HTMLElement | null;
 }
 
 function TopBar(props: IProps) {
@@ -139,6 +141,8 @@ function a11yProps(index: any) {
     };
 }
 
+
+// Get Initial State
 function init(): IState {
     return {
         selectedTab: 0,
@@ -146,6 +150,7 @@ function init(): IState {
     };
 }
 
+// Logout a user
 async function logout(): Promise<boolean> {
     let done = false;
     try {

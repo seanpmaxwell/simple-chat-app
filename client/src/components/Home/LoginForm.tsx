@@ -19,10 +19,14 @@ enum LoginStatus {
 }
 
 
-type TInitState = ReturnType<typeof init>;
-
 interface IProps {
     fetchSessionData: () => Promise<void>;
+}
+
+interface IState {
+    email: string;
+    password: string;
+    loginStatus: LoginStatus
 }
 
 function LoginForm(props: IProps): JSX.Element {
@@ -86,7 +90,8 @@ function LoginForm(props: IProps): JSX.Element {
     );
 }
 
-function init() {
+// Initial State
+function init(): IState {
     return {
         email: 'foo@barr',
         password: 'Password@1',
@@ -94,7 +99,8 @@ function init() {
     };
 }
 
-async function loginUser(state: TInitState): Promise<LoginStatus> {
+// Login User
+async function loginUser(state: IState): Promise<LoginStatus> {
     const { email, password } = state;
     let status = LoginStatus.Failed;
     try {

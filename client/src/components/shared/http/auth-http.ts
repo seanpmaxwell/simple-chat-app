@@ -10,6 +10,8 @@ const prefix = '/api/auth',
     } as const;
 
 
+// #### Types #### //
+
 export interface ISessionData {
     id: number;
     email: string;
@@ -17,6 +19,8 @@ export interface ISessionData {
     waiting: boolean;
 }
 
+
+// #### Functions #### //
 
 /**
  * Login user. Return a boolean letting user know if passed or failed.

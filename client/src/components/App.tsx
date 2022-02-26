@@ -13,6 +13,10 @@ import authHttp, { ISessionData } from './shared/http/auth-http';
 import { useSetState } from './shared/hooks';
 
 
+interface IState {
+    sessionData: ISessionData;
+}
+
 function App() {
     const [state, setState] = useSetState(init());
     // Set fetch-session-data function
@@ -56,12 +60,15 @@ function App() {
     );
 }
 
-function init() {
+
+// Get initial-state
+function init(): IState {
     return {
         sessionData: getEmptySessionData(),
     };
 }
 
+// Get blank session-data (avoid undefined errors before login)
 function getEmptySessionData(): ISessionData {
     return {
         id: -1,
@@ -71,6 +78,7 @@ function getEmptySessionData(): ISessionData {
     }
 }
 
+// Fetch jwt session-data
 async function getSessionData(): Promise<ISessionData> {
     try {
         const data = await authHttp.getSessionData();

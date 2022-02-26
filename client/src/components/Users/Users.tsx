@@ -80,6 +80,8 @@ function Users(): JSX.Element {
     </PageWrapper>);
 }
 
+
+// Get initial State
 function init(): IState {
     return {
         userFormMode: Modes.Closed,
@@ -87,6 +89,7 @@ function init(): IState {
     };
 }
 
+// Fetch all users from the database
 async function fetchUsers(): Promise<IUser[]> {
     let users: IUser[] = [];
     try {
