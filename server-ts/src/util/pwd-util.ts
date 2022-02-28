@@ -12,12 +12,14 @@ function encrypt(password: string): Promise<string> {
     return bcrypt.hash(password, pwdSaltRounds);
 }
 
+
 /**
  * Hash the password synchronously. Useful for testing.
  */
 function encryptSync(password: string): string {
     return bcrypt.hashSync(password, pwdSaltRounds);
 }
+
 
 /**
  * See if a password passed.

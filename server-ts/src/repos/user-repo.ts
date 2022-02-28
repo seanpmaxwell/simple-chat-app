@@ -10,6 +10,7 @@ async function findByEmail(email: string): Promise<TSavedUser | null> {
     return (resp.length > 0 ? resp[0] : null);
 }
 
+
 /**
  * Fetch the password hash.
  */
@@ -17,6 +18,7 @@ async function fetchPwdHash(userId: number): Promise<string> {
     const resp = await knex<IUserCreds, IUserCreds[]>('userCreds').where('userId', userId);
     return (resp.length > 0 ? resp[0].pwdHash : '');
 }
+
 
 /**
  * Add one user.
@@ -26,12 +28,14 @@ async function addOne(user: IUser): Promise<number | undefined> {
     return resp[0].id;
 }
 
+
 /**
  * Add user credentials.
  */
 function addCreds(creds: IUserCreds): Promise<void> {
     return knex<IUserCreds>('userCreds').insert(creds);
 }
+
 
 /**
  * Fetch all users.

@@ -32,6 +32,7 @@ function getNew(
     };
 }
 
+
 /**
  * Copy a user object.
  */

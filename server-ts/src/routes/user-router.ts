@@ -16,6 +16,7 @@ const p = {
 // Init router
 const router = new Router({prefix: p.prefix});
 
+
 /**
  * Add one user.
  */
@@ -28,6 +29,7 @@ router.post(p.add, async (ctx) => {
     await userService.addOne(email, name, password);
     ctx.status = HttpStatusCodes.CREATED;
 });
+
 
 /**
  * Fetch all.

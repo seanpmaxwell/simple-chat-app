@@ -29,6 +29,7 @@ async function addOne(email: string, name: string, password: string): Promise<vo
     await userRepo.addCreds(creds);
 }
 
+
 /**
  * Fetch all users.
  */

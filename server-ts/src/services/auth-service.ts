@@ -38,6 +38,7 @@ async function login(email: string, password: string): Promise<ILoginResp> {
     return {passed: true, jwt};
 }
 
+
 /**
  * Encrypt data and return jwt.
  */

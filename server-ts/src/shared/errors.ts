@@ -11,6 +11,7 @@ export abstract class CustomError extends Error {
     }
 }
 
+
 export class ParamMissingError extends CustomError {
 
     public static readonly Msg = 'One or more of the required parameters was missing.';
