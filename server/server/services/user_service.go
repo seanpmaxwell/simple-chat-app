@@ -1,9 +1,9 @@
 package services
 
 import (
-	"simple-chat-app/server/src/models"
-	"simple-chat-app/server/src/repos"
-	"simple-chat-app/server/src/util"
+	"simple-chat-app/server/server/models"
+	"simple-chat-app/server/server/repos"
+	"simple-chat-app/server/server/util"
 )
 
 type UserService struct {

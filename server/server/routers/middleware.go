@@ -2,9 +2,9 @@ package routers
 
 import (
 	"net/http"
-	"simple-chat-app/server/src/shared"
-	"simple-chat-app/server/src/shared/constants"
-	"simple-chat-app/server/src/util"
+	"simple-chat-app/server/server/shared"
+	"simple-chat-app/server/server/shared/constants"
+	"simple-chat-app/server/server/util"
 	"strings"
 
 	"github.com/gin-gonic/gin"

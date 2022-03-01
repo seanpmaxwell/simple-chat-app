@@ -1,14 +1,14 @@
 //go:build wireinject
 // +build wireinject
 
-package main
+package server
 
 import (
-	"simple-chat-app/server/src/repos"
-	"simple-chat-app/server/src/routers"
-	"simple-chat-app/server/src/services"
-	"simple-chat-app/server/src/shared"
-	"simple-chat-app/server/src/util"
+	"simple-chat-app/server/server/repos"
+	"simple-chat-app/server/server/routers"
+	"simple-chat-app/server/server/services"
+	"simple-chat-app/server/server/shared"
+	"simple-chat-app/server/server/util"
 
 	"github.com/google/wire"
 )

@@ -1,7 +1,7 @@
 package repos
 
 import (
-	"simple-chat-app/server/src/models"
+	"simple-chat-app/server/server/models"
 
 	"gorm.io/gorm"
 )

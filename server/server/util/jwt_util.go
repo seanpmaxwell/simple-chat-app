@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"time"
 
-	"simple-chat-app/server/src/shared"
+	"simple-chat-app/server/server/shared"
 
 	"github.com/golang-jwt/jwt"
 )

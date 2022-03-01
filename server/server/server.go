@@ -1,8 +1,8 @@
-package main
+package server
 
 import (
-	"simple-chat-app/server/src/routers"
-	"simple-chat-app/server/src/shared"
+	"simple-chat-app/server/server/routers"
+	"simple-chat-app/server/server/shared"
 
 	"github.com/gin-gonic/gin"
 )

@@ -2,7 +2,7 @@ package routers
 
 import (
 	"net/http"
-	"simple-chat-app/server/src/services"
+	"simple-chat-app/server/server/services"
 
 	"strconv"
 

@@ -1,9 +1,9 @@
-package main
+package server
 
 import (
 	"fmt"
-	"simple-chat-app/server/src/models"
-	"simple-chat-app/server/src/shared"
+	"simple-chat-app/server/server/models"
+	"simple-chat-app/server/server/shared"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
