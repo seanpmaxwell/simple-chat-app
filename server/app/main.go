@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-
 	"simple-chat-app/server/server"
 
 	"github.com/joho/godotenv"
