@@ -40,3 +40,4 @@ Go + Gin (web-server and hot-reloading) + Gorm (ORM) + Postgres (DB) + Godotenv 
 #### Notes
 - If you create a dependency (i.e. struct that's a router, repo, service, util, etc), you need to place it's dependencies (if it has any) as properties, create a `NewNameOfTheStruct"()` function for it, and place that function in `wire.go`. Then update the dependency injections with `sh run.sh wire`.
 - Constraints cannot be altered after a table is created. You need to drop the table and recreate the constraint.
+- For programs use structs w/ dependency injection to organize code, for libraries, use packages to organize code.
