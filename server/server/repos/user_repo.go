@@ -6,6 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// Layer
 type UserRepo struct {
 	Db *gorm.DB
 }

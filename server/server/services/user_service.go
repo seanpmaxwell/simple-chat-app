@@ -6,6 +6,7 @@ import (
 	"simple-chat-app/server/server/util"
 )
 
+// Layer
 type UserService struct {
 	UserRepo *repos.UserRepo
 	PwdUtil  *util.PwdUtil

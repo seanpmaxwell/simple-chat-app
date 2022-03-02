@@ -27,6 +27,7 @@ type CookieParams struct {
 	Exp    int
 }
 
+// Layer
 type EnvVars struct {
 	DbParams     *DbParams
 	JwtParams    *JwtParams

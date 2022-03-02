@@ -12,6 +12,7 @@ const (
 	checkPwdFailed = "password verification failed"
 )
 
+// Layer
 type AuthService struct {
 	UserRepo *repos.UserRepo
 	PwdUtil  *util.PwdUtil

@@ -2,6 +2,7 @@ package util
 
 import "golang.org/x/crypto/bcrypt"
 
+// Layer
 type PwdUtil struct{}
 
 // Wire()

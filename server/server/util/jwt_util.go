@@ -26,6 +26,7 @@ type JwtClaims struct {
 	Data interface{} `json:"data"`
 }
 
+// Layer
 type JwtUtil struct {
 	EnvVars *shared.EnvVars
 }
