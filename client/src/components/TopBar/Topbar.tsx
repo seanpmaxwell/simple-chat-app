@@ -9,9 +9,9 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import { useSetState } from '../shared/hooks';
-import authHttp, { ISessionData } from '../shared/http/auth-http';
-import { getInitials } from '../shared/functions';
+import { useSetState } from '../_shared/hooks';
+import authHttp, { ISessionData } from '../_shared/http/auth-http';
+import { getInitials } from '../_shared/functions';
 import { appCtx } from '../App';
 
 

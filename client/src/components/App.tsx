@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider} from 'react-redux';
 
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -9,11 +11,20 @@ import './App.css';
 import TopBar from './TopBar/Topbar';
 import Users from './Users/Users';
 import Chat from './Chat/Chat';
-import authHttp, { ISessionData } from './shared/http/auth-http';
-import { useSetState } from './shared/hooks';
+import Redux from './Redux/Redux';
+import authHttp, { ISessionData } from './_shared/http/auth-http';
+import { useSetState } from './_shared/hooks';
+import reduxSliceReducer from './Redux/ReduxSlice';
 
 
-// **** Setup Content **** //
+// **** Setup Redux **** //
+
+const store = configureStore({
+    reducer: reduxSliceReducer,
+});
+
+
+// **** Setup Context **** //
 
 export let appCtx = React.createContext<IContext>({
     sessionData: getEmptySessionData(),
@@ -45,36 +56,39 @@ function App() {
     // Return
     return (
         <div>
-            <appCtx.Provider
-                value={{
-                    sessionData: state.sessionData,
-                    fetchSessionData,
-                }}
-            >
-                <React.Fragment>
-                    <CssBaseline />
-                    <BrowserRouter>
-                        <Routes>
-                            <Route
-                                path="/"
-                                element={
-                                    <TopBar/>
-                                }
-                            >
+            <Provider store={store}>
+                <appCtx.Provider
+                    value={{
+                        sessionData: state.sessionData,
+                        fetchSessionData,
+                    }}
+                >
+                    <React.Fragment>
+                        <CssBaseline />
+                        <BrowserRouter>
+                            <Routes>
                                 <Route
-                                    index={true}
+                                    path="/"
                                     element={
-                                        <Home/>
+                                        <TopBar/>
                                     }
-                                />
-                                <Route path="users" element={<Users />} />
-                                <Route path="chat" element={<Chat />} />
-                                <Route path="*" element={<NoPage />} />
-                            </Route>
-                        </Routes>
-                    </BrowserRouter>
-                </React.Fragment>
-            </appCtx.Provider>
+                                >
+                                    <Route
+                                        index={true}
+                                        element={
+                                            <Home/>
+                                        }
+                                    />
+                                    <Route path="redux" element={<Redux />} />
+                                    <Route path="users" element={<Users />} />
+                                    <Route path="chat" element={<Chat />} />
+                                    <Route path="*" element={<NoPage />} />
+                                </Route>
+                            </Routes>
+                        </BrowserRouter>
+                    </React.Fragment>
+                </appCtx.Provider>
+            </Provider>
         </div>
     );
 }

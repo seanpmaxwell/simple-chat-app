@@ -8,8 +8,8 @@ import {
     Typography,
 } from '@mui/material';
 
-import { useSetState } from '../shared/hooks';
-import authHttp from '../shared/http/auth-http';
+import { useSetState } from '../_shared/hooks';
+import authHttp from '../_shared/http/auth-http';
 import { appCtx } from '../App';
 
 

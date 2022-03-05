@@ -1,4 +1,4 @@
-import { PageWrapper } from "../shared/components/PageWrapper";
+import { PageWrapper } from "../_shared/components/PageWrapper";
 
 
 function Chat(): JSX.Element {
