@@ -12,8 +12,8 @@ import TopBar from './TopBar/Topbar';
 import Users from './Users/Users';
 import Chat from './Chat/Chat';
 import Redux from './Redux/Redux';
-import authHttp, { ISessionData } from './_shared/http/auth-http';
-import { useSetState } from './_shared/hooks';
+import authHttp, { ISessionData } from '../shared/http/auth-http';
+import { useSetState } from '../shared/hooks';
 import reduxSliceReducer from './Redux/Redux.slice';
 
 

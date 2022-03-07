@@ -6,8 +6,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Grid from '@mui/material/Grid';
 import { TextField } from '@mui/material';
 
-import { useSetState } from '../_shared/hooks';
-import usersHttp from '../_shared/http/users-http';
+import { useSetState } from '../../shared/hooks';
+import usersHttp from '../../shared/http/users-http';
 
 
 export enum Modes {

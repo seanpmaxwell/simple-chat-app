@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 
 
-import { PageWrapper } from '../_shared/components/PageWrapper';
-import { useSetState } from '../_shared/hooks';
+import { PageWrapper } from '../../shared/components/PageWrapper';
+import { useSetState } from '../../shared/hooks';
 import { actions as slc, IReduxSliceState } from './Redux.slice';
 import ReduxSlice from './ReduxChild/ReduxChild';
 

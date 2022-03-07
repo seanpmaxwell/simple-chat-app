@@ -31,7 +31,7 @@ function add(email: string, name: string, password: string): Promise<void> {
  * Fetch all users.
  */
 function fetchAll(): Promise<{users: IUser[]}> {
-    return http(routes.fetchAll)
+    return http(routes.fetchAll);
 }
 
 
