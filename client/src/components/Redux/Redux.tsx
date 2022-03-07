@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 
 import { PageWrapper } from '../_shared/components/PageWrapper';
 import { useSetState } from '../_shared/hooks';
-import { actions as slc, IReduxSliceState } from './ReduxSlice';
+import { actions as slc, IReduxSliceState } from './Redux.slice';
 import ReduxSlice from './ReduxChild/ReduxChild';
 
 
