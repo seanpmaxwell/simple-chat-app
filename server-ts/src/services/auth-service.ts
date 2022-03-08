@@ -5,12 +5,16 @@ import userRepo from '@repos/user-repo';
 import pwdUtil from '@util/pwd-util';
 
 
+// **** Types **** //
+
 interface ILoginResp {
     passed: boolean;
     jwt?: string;
     error?: string;
 }
 
+
+// **** Functions **** //
 
 /**
  * Check user creds and return a jwt if they passed.
@@ -37,7 +41,6 @@ async function login(email: string, password: string): Promise<ILoginResp> {
     // Return
     return {passed: true, jwt};
 }
-
 
 /**
  * Encrypt data and return jwt.

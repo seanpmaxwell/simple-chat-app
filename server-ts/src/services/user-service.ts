@@ -3,11 +3,15 @@ import User, { IUser, IUserCreds } from '@models/user-model';
 import pwdUtil from '@util/pwd-util';
 
 
+// **** Types/Constants **** //
+
 // Errors
 const errors = {
     addOne: 'User cound not be saved',
 } as const;
 
+
+// **** Functions **** //
 
 /**
  * Add one user.
@@ -28,7 +32,6 @@ async function addOne(email: string, name: string, password: string): Promise<vo
     };
     await userRepo.addCreds(creds);
 }
-
 
 /**
  * Fetch all users.

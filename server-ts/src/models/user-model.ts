@@ -1,3 +1,5 @@
+// **** Types **** //
+
 // User Interface
 export interface IUser {
     id?: number;
@@ -17,6 +19,8 @@ export interface IUserCreds {
 export type TSavedUser = Required<IUser>;
 
 
+// **** Functions **** //
+
 /**
  * Get new user instance.
  */
@@ -31,7 +35,6 @@ function getNew(
         createdAt: createdAt ?? new Date().toISOString(),
     };
 }
-
 
 /**
  * Copy a user object.
