@@ -12,6 +12,7 @@ import session from 'koa-session';
 
 import apiRouter from './routes/api-router';
 import staticRouter from './routes/static-router';
+import envVars from '@shared/env-vars';
 
 
 // Constants
@@ -24,7 +25,7 @@ app.use(json());
 app.use(koaLogger());
 
 // Set keys for cookies (cookies store the jwt)
-app.keys = [process.env.COOKIE_NAME ?? ''];
+app.keys = [envVars.cookieProps.name ?? ''];
 app.use(session(app));
 
 // Error handling

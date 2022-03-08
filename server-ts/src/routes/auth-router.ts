@@ -1,11 +1,11 @@
 import Router from 'koa-router';
-import { IOptions } from 'cookies';
 import HttpStatusCodes from 'http-status-codes';
 
 import authService from '@services/auth-service';
 import { ParamMissingError } from '@shared/errors';
 import { tick } from '@shared/functions';
 import { getSessionMw } from './middlewares';
+import envVars from '@shared/env-vars';
 
 
 // **** Vars/Constants **** //
@@ -16,16 +16,6 @@ const p = {
     login: '/login',
     sessionData: '/session-data',
     logout: '/logout',
-} as const;
-
-// Cookie options
-const cookieOptions: IOptions = {
-    httpOnly: true,
-    signed: true,
-    path: (process.env.COOKIE_PATH),
-    maxAge: Number(process.env.COOKIE_EXP),
-    domain: (process.env.COOKIE_DOMAIN),
-    secure: (process.env.SECURE_COOKIE === 'true'),
 } as const;
 
 // Init router
@@ -51,14 +41,14 @@ router.put(p.login, async (ctx) => {
         return;
     }
     // see middlware file
-    ctx.cookies.set((process.env.COOKIE_NAME ?? ''), jwt, cookieOptions);
+    ctx.cookies.set((envVars.cookieProps.name ?? ''), jwt, envVars.cookieProps.options);
 });
 
 /**
  * Logout the user by deleting the cookie.
  */
  router.get(p.logout, (ctx) => {
-    ctx.cookies.set(process.env.COOKIE_NAME ?? '');
+    ctx.cookies.set(envVars.cookieProps.name ?? '');
     ctx.status = HttpStatusCodes.OK;
 });
 

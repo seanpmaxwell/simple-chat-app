@@ -1,5 +1,7 @@
 import jwt from 'koa-jwt';
 import randomstring from 'randomstring';
+import envVars from '@shared/env-vars';
+
 
 
 /**
@@ -7,8 +9,8 @@ import randomstring from 'randomstring';
  */
 export function getApiMw() {
     return jwt({
-        secret: (process.env.JWT_SECRET ?? randomstring.generate(100)),
-        cookie: process.env.COOKIE_NAME,
+        secret: (envVars.jwt.secret ?? randomstring.generate(100)),
+        cookie: envVars.cookieProps.name,
     }).unless({path: [/^\/api\/auth/]});
 }
 
@@ -17,8 +19,8 @@ export function getApiMw() {
  */
 export function getSessionMw() {
     return jwt({
-        secret: (process.env.JWT_SECRET ?? randomstring.generate(100)),
-        cookie: process.env.COOKIE_NAME,
+        secret: (envVars.jwt.secret ?? randomstring.generate(100)),
+        cookie: envVars.cookieProps.name,
         passthrough: true,
     });
 }

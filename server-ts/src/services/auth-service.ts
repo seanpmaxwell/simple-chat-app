@@ -3,6 +3,7 @@ import randomstring from 'randomstring';
 
 import userRepo from '@repos/user-repo';
 import pwdUtil from '@util/pwd-util';
+import envVars from '@shared/env-vars';
 
 
 // **** Types **** //
@@ -47,8 +48,8 @@ async function login(email: string, password: string): Promise<ILoginResp> {
  */
 function sign(data: JwtPayload): Promise<string> {
     // Setup secret and options
-    const secret = (process.env.JWT_SECRET ?? randomstring.generate(100)),
-        options = {expiresIn: process.env.COOKIE_EXP};
+    const secret = (envVars.jwt.secret ?? randomstring.generate(100)),
+        options = {expiresIn: envVars.jwt.exp};
     // Return promise
     return new Promise((resolve, reject) => {
         return jsonwebtoken.sign(data, secret, options, (err, token) => {

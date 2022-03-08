@@ -1,12 +1,13 @@
 import path from 'path';
 import dotenv from 'dotenv';
 import logger from 'jet-logger';
+import envVars from '@shared/env-vars';
 
 
 // Import environment variabes
 (() => {
     try {
-        const envFolderPath = path.join(__dirname, `${process.env.NODE_ENV}.env`);
+        const envFolderPath = path.join(__dirname, `${envVars.nodeEnv}.env`);
         const result2 = dotenv.config({
             path: (envFolderPath),
         });

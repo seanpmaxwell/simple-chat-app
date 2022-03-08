@@ -1,11 +1,12 @@
 import '../env';
 import logger from 'jet-logger';
 import app from './server';
+import envVars from '@shared/env-vars';
 
 
 // Constants
 const serverStartMsg = 'Koa Started on port localhost:',
-    port = process.env.PORT;
+    port = envVars.port;
 
     
 // Start server
