@@ -14,6 +14,7 @@ export function getApiMw() {
     }).unless({path: [/^\/api\/auth/]});
 }
 
+
 /**
  * Parse jsonwebtoken, token data is available at "ctx.state.user".
  */

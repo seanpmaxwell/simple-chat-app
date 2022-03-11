@@ -27,6 +27,7 @@ const (
 
 /**** Types ****/
 
+// The data stored in the jwt
 type JwtClaims struct {
 	jwt.StandardClaims
 	Data interface{} `json:"data"`
