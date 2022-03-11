@@ -2,7 +2,7 @@ package routers
 
 /**** Types ****/
 
-// Layer
+// ApiRouter layer
 type ApiRouter struct {
 	AuthRouter *AuthRouter
 	UserRouter *UserRouter

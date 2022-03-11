@@ -8,6 +8,7 @@ import (
 
 /**** Types ****/
 
+// Database connection params
 type DbParams struct {
 	Host string
 	Port string
@@ -16,11 +17,13 @@ type DbParams struct {
 	Pwd  string
 }
 
+// Json-web-token Params
 type JwtParams struct {
 	Secret []byte
 	Exp    int
 }
 
+// Cookie Params
 type CookieParams struct {
 	Name   string
 	Domain string
@@ -29,7 +32,7 @@ type CookieParams struct {
 	Exp    int
 }
 
-// Layer
+// EnvVars Layer
 type EnvVars struct {
 	DbParams     *DbParams
 	JwtParams    *JwtParams
@@ -40,7 +43,7 @@ type EnvVars struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire EnvVars
 func WireEnvVars() *EnvVars {
 	var err error
 	// Database

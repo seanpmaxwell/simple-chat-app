@@ -11,19 +11,21 @@ import (
 
 /**** Types ****/
 
+// Add user request
 type AddUserReq struct {
 	Email    string `json:"email"`
 	Name     string `json:"name"`
 	Password string `json:"password"`
 }
 
+// Update user request
 type UpdateUserReq struct {
 	ID    uint   `json:"id"`
 	Email string `json:"email"`
 	Name  string `json:"name"`
 }
 
-// Layer
+// UserRouter layer
 type UserRouter struct {
 	UserService *services.UserService
 }
@@ -32,7 +34,7 @@ type UserRouter struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire UserRouter
 func WireUserRouter(userService *services.UserService) *UserRouter {
 	return &UserRouter{userService}
 }

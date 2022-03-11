@@ -18,7 +18,7 @@ const (
 
 /**** Types ****/
 
-// Layer
+// AuthService layer
 type AuthService struct {
 	UserRepo *repos.UserRepo
 	PwdUtil  *util.PwdUtil
@@ -28,7 +28,7 @@ type AuthService struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire AuthService
 func WireAuthService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *AuthService {
 	return &AuthService{userRepo, pwdUtil}
 }

@@ -17,6 +17,7 @@ const (
 
 /**** Types ****/
 
+// Server
 type Server struct {
 	EnvVars    *shared.EnvVars
 	apiRouter  *routers.ApiRouter
@@ -27,7 +28,7 @@ type Server struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire Server
 func WireServer(
 	envVars *shared.EnvVars,
 	apiRouter *routers.ApiRouter,

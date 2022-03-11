@@ -8,7 +8,7 @@ import (
 
 /**** Functions ****/
 
-// Layer
+// UserService Layer
 type UserService struct {
 	UserRepo *repos.UserRepo
 	PwdUtil  *util.PwdUtil
@@ -18,7 +18,7 @@ type UserService struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire UserService
 func WireUserService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *UserService {
 	return &UserService{userRepo, pwdUtil}
 }

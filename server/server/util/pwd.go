@@ -4,14 +4,14 @@ import "golang.org/x/crypto/bcrypt"
 
 /**** Types ****/
 
-// Layer
+// PwdUtil layer
 type PwdUtil struct{}
 
 
 
 /**** Functions ****/
 
-// Wire()
+// Wire PwdUtil
 func WirePwdUtil() *PwdUtil {
 	return &PwdUtil{}
 }

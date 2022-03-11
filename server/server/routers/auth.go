@@ -18,7 +18,7 @@ type LoginReq struct {
 	Password string `json:"password"`
 }
 
-// Layer
+// AuthRouter layer
 type AuthRouter struct {
 	EnvVars     *shared.EnvVars
 	JwtUtil     *util.JwtUtil
@@ -29,7 +29,7 @@ type AuthRouter struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire AuthRouter
 func WireAuthRouter(
 	envVars *shared.EnvVars,
 	jwtUtil *util.JwtUtil,

@@ -4,7 +4,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// Core User table
+// User
 type User struct {
 	gorm.Model
 	Email     string    `json:"email" gorm:"unique;size:255;not null"`

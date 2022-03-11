@@ -12,12 +12,14 @@ import (
 
 /**** Types ****/
 
+// Things stored in a login session
 type SessionData struct {
 	ID    uint   `json:"id"`
 	Email string `json:"email"`
 	Name  string `json:"name"`
 }
 
+// Middleware Layer
 type Middlware struct {
 	EnvVars *shared.EnvVars
 	JwtUtil *util.JwtUtil
@@ -27,7 +29,7 @@ type Middlware struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire Middleware
 func WireMiddleware(envVars *shared.EnvVars, jwtUtil *util.JwtUtil) *Middlware {
 	return &Middlware{envVars, jwtUtil}
 }

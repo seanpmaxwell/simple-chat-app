@@ -8,7 +8,7 @@ import (
 
 /**** Types ****/
 
-// Layer
+// UserRepo Layer
 type UserRepo struct {
 	Db *gorm.DB
 }
@@ -17,7 +17,7 @@ type UserRepo struct {
 
 /**** Functions ****/
 
-// Wire()
+// Wire UserRepo
 func WireUserRepo(db *gorm.DB) *UserRepo {
 	return &UserRepo{db}
 }
