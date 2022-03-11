@@ -13,6 +13,9 @@ import authHttp from '../../shared/http/auth-http';
 import { appCtx } from '../App';
 
 
+
+// **** Types **** //
+
 enum LoginStatus {
     NA = 1,
     Waiting,
@@ -21,7 +24,8 @@ enum LoginStatus {
 }
 
 
-// **** LoginForm() **** //
+
+// **** LoginForm **** //
 
 interface IState {
     email: string;
@@ -104,6 +108,7 @@ function init(): IState {
     };
 }
 
+
 /**
  * Login User
  */
@@ -118,6 +123,7 @@ async function loginUser(state: IState): Promise<LoginStatus> {
     }
     return status;
 }
+
 
 
 // Export default

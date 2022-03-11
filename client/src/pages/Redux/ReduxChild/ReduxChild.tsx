@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { actions as slc, IReduxSliceState } from '../ReduxSlice';
 
 
-function Redux(): JSX.Element {
+
+// **** ReduxChild **** //
+
+function ReduxChild(): JSX.Element {
     const dispatch = useDispatch();
     const sliceState = useSelector<IReduxSliceState, IReduxSliceState>(sliceState => sliceState);
     return (<div>
@@ -29,5 +32,6 @@ function Redux(): JSX.Element {
 }
 
 
+
 // Export default.
-export default Redux;
+export default ReduxChild;

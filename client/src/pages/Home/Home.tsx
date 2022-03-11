@@ -8,6 +8,9 @@ import { PageWrapper } from '../../shared/components/PageWrapper';
 import LoginForm from './LoginForm';
 
 
+
+// **** Home **** //
+
 function Home(): JSX.Element {
     return (<PageWrapper>
         <Grid
@@ -40,6 +43,7 @@ const LoginPaper = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
     backgroundColor: '#fafafa',
 }));
+
 
 
 // Export default.

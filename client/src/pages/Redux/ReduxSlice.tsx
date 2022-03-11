@@ -1,9 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 
+
+// **** Types **** //
+
 export interface IReduxSliceState {
     count: number;
 }
+
+
+
+// **** Functions **** //
 
 // createSlize();
 const slice = createSlice({
@@ -25,6 +32,7 @@ const slice = createSlice({
 });
 
 
+// TODO
 // **** When you want to starting defining functions outside the object above **** //
 // type State = number
 // const increment: CaseReducer<State, PayloadAction<number>> = (state, action) =>
@@ -37,6 +45,7 @@ const slice = createSlice({
 //     increment,
 //   },
 // })
+
 
 
 // Export reducer and actions

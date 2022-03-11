@@ -15,11 +15,13 @@ import { getInitials } from '../../shared/functions';
 import { appCtx } from '../App';
 
 
-// Constants
+
+// **** Constants **** //
 const routes = ['/users', '/chat'];
 
 
-// **** TopBar() **** //
+
+// **** TopBar **** //
 
 interface IState {
     selectedTab: number; // idx in the "routes" array above.
@@ -133,6 +135,9 @@ function a11yProps(index: any) {
 }
 
 
+
+// **** Functions **** //
+
 /**
  * Get Initial State
  */
@@ -143,12 +148,14 @@ function init(): IState {
     };
 }
 
+
 /**
  * Determine wether useEffect should nav home. Yes if not logged in and not already at home.
  */
 function shouldNavHome(sessionData: ISessionData, pathname: string, loggedIn: boolean): boolean {
     return (!sessionData.waiting && !loggedIn && pathname !== '/');
 }
+
 
 /**
  * Help set the selected tab by getting the idx for it in the "routes" array above.
@@ -160,6 +167,7 @@ function getSelectedTabIdx(pathname: string, loggedIn: boolean): number {
     }
     return idxOfRouteInUrl;
 }
+
 
 /**
  * Logout a user
@@ -174,6 +182,7 @@ async function logout(): Promise<boolean> {
     }
     return done;
 }
+
 
 
 // Export default
