@@ -20,7 +20,7 @@ const (
 /**** Functions ****/
 
 // Wire()
-// https://github.com/go-gorm/postgres
+// Documentation: https://github.com/go-gorm/postgres
 func WireDbConn(envVars *shared.EnvVars) *gorm.DB {
 	// Setup connection string
 	dbParams := envVars.DbParams
