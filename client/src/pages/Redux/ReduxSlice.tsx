@@ -6,7 +6,7 @@ export interface IReduxSliceState {
 }
 
 // createSlize();
-const counter = createSlice({
+const slice = createSlice({
     name: 'redux',
     initialState: {
         count: 0,
@@ -40,5 +40,5 @@ const counter = createSlice({
 
 
 // Export reducer and actions
-export const actions = counter.actions;
-export default counter.reducer;
+export const actions = slice.actions;
+export default slice.reducer;

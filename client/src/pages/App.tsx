@@ -14,13 +14,13 @@ import Chat from './Chat/Chat';
 import Redux from './Redux/Redux';
 import authHttp, { ISessionData } from '../shared/http/auth-http';
 import { useSetState } from '../shared/hooks';
-import reduxSliceReducer from './Redux/Redux.slice';
+import ReduxSlice from './Redux/ReduxSlice';
 
 
 // **** Setup Redux **** //
 
 const store = configureStore({
-    reducer: reduxSliceReducer,
+    reducer: ReduxSlice,
 });
 
 
