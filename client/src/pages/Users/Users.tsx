@@ -22,6 +22,9 @@ interface IState {
     users: IUser[];
 }
 
+/**
+ * Users()
+ */
 function Users(): JSX.Element {
     const [state, setState ] = useSetState(init());
     useEffect(() => {

@@ -15,6 +15,9 @@ interface IState {
     count: number;
 }
 
+/**
+ * Redux()
+ */
 function Redux(): JSX.Element {
     const [state, setState ] = useSetState(init());
     const dispatch = useDispatch();

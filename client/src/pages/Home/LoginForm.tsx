@@ -33,6 +33,9 @@ interface IState {
     loginStatus: LoginStatus
 }
 
+/**
+ * LoginForm()
+ */
 function LoginForm(): JSX.Element {
     const [state, setState ] = useSetState(init()),
     ctx = useContext(appCtx),

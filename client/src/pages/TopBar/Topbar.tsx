@@ -28,6 +28,9 @@ interface IState {
     menuAnchor: HTMLElement | null;
 }
 
+/**
+ * TopBar()
+ */
 function TopBar() {
     const [state, setState ] = useSetState(init()),
         ctx = useContext(appCtx),

@@ -6,6 +6,9 @@ import { actions as slc, IReduxSliceState } from '../ReduxSlice';
 
 // **** ReduxChild **** //
 
+/**
+ * ReduxChild()
+ */
 function ReduxChild(): JSX.Element {
     const dispatch = useDispatch();
     const sliceState = useSelector<IReduxSliceState, IReduxSliceState>(sliceState => sliceState);

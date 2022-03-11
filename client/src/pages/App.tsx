@@ -45,6 +45,9 @@ interface IState {
     sessionData: ISessionData;
 }
 
+/**
+ * App()
+ */
 function App() {
     const [state, setState] = useSetState(init());
     // Set fetch-session-data function

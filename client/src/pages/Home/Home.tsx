@@ -11,6 +11,9 @@ import LoginForm from './LoginForm';
 
 // **** Home **** //
 
+/**
+ * Home()
+ */
 function Home(): JSX.Element {
     return (<PageWrapper>
         <Grid

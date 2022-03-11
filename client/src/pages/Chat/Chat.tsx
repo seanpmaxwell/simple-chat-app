@@ -4,6 +4,9 @@ import { PageWrapper } from "../../shared/components/PageWrapper";
 
 // **** Chat **** //
 
+/**
+ * Chat()
+ */
 function Chat(): JSX.Element {
     return (
         <PageWrapper>Chat</PageWrapper>
