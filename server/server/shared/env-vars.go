@@ -6,6 +6,8 @@ import (
 	"strconv"
 )
 
+/**** Types ****/
+
 type DbParams struct {
 	Host string
 	Port string
@@ -33,6 +35,10 @@ type EnvVars struct {
 	JwtParams    *JwtParams
 	CookieParams *CookieParams
 }
+
+
+
+/**** Functions ****/
 
 // Wire()
 func WireEnvVars() *EnvVars {

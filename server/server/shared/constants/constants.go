@@ -1,8 +1,14 @@
 package constants
 
+/**** Consts/Vars ****/
+
 const (
 	sessionDataKey = "session-data"
 )
+
+
+
+/**** Functions ****/
 
 // The key used to identify session data on the context
 // as it's passed down through the middleware.

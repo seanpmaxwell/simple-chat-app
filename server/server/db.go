@@ -9,9 +9,15 @@ import (
 	"gorm.io/gorm"
 )
 
+/**** Consts/Vars ****/
+
 const (
 	dnsStr = "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable"
 )
+
+
+
+/**** Functions ****/
 
 // Wire()
 // https://github.com/go-gorm/postgres

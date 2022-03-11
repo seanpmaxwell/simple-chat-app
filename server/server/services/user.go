@@ -6,21 +6,29 @@ import (
 	"simple-chat-app/server/server/util"
 )
 
+/**** Functions ****/
+
 // Layer
 type UserService struct {
 	UserRepo *repos.UserRepo
 	PwdUtil  *util.PwdUtil
 }
 
+
+
+/**** Functions ****/
+
 // Wire()
 func WireUserService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *UserService {
 	return &UserService{userRepo, pwdUtil}
 }
 
+
 // Fetch all users.
 func (u *UserService) FetchAll() (*[]models.User, error) {
 	return u.UserRepo.FetchAll()
 }
+
 
 // Add a new user object.
 func (u *UserService) Add(email string, name string, password string) error {
@@ -41,6 +49,7 @@ func (u *UserService) Add(email string, name string, password string) error {
 	return nil
 }
 
+
 // Update user's email and name.
 func (u *UserService) Update(id uint, email string, name string) error {
 	user, err := u.UserRepo.FindById(id)
@@ -50,6 +59,7 @@ func (u *UserService) Update(id uint, email string, name string) error {
 	u.UserRepo.Update(user, email, name)
 	return nil
 }
+
 
 // Delete one user
 func (u *UserService) Delete(id uint) error {

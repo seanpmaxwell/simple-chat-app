@@ -10,6 +10,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+/**** Types ****/
+
 type SessionData struct {
 	ID    uint   `json:"id"`
 	Email string `json:"email"`
@@ -21,10 +23,15 @@ type Middlware struct {
 	JwtUtil *util.JwtUtil
 }
 
+
+
+/**** Functions ****/
+
 // Wire()
 func WireMiddleware(envVars *shared.EnvVars, jwtUtil *util.JwtUtil) *Middlware {
 	return &Middlware{envVars, jwtUtil}
 }
+
 
 // Check the jwt-cookie is present.
 func (m *Middlware) SessionMw(c *gin.Context) {

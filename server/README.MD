@@ -15,11 +15,16 @@ Go + Gin (web-server and hot-reloading) + Gorm (ORM) + Postgres (DB) + Godotenv 
 - For hot-reloading:
     - Add this to `export PATH=/home/your_name/go/bin:$PATH` to `.bashrc`.
     - Hot reloading docs: `https://github.com/codegangsta/gin`
-- Add this to Vscode's `settings.json` file so `wire.go` does not show linter warnings:
+- Add this to Vscode's `settings.json` file:
 ```JSON
+    // so `wire.go` does not show linter warnings:
     "gopls.env": {
         "GOFLAGS": "-tags=wireinject"
     },
+    // To turn off the linter when saving (get's annoying).
+    "[go]": {
+        "editor.formatOnSave": false
+    }
 ```
 
 

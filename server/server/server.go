@@ -7,15 +7,25 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+/**** Consts/Vars ****/
+
 const (
 	serverStartMsg = "Gin server running on localhost"
 )
+
+
+
+/**** Types ****/
 
 type Server struct {
 	EnvVars    *shared.EnvVars
 	apiRouter  *routers.ApiRouter
 	middleware *routers.Middlware
 }
+
+
+
+/**** Functions ****/
 
 // Wire()
 func WireServer(
@@ -25,6 +35,7 @@ func WireServer(
 ) *Server {
 	return &Server{envVars, apiRouter, middleware}
 }
+
 
 // Start the gin engine.
 func (s *Server) Start() {
@@ -36,6 +47,7 @@ func (s *Server) Start() {
 	engine.Use()
 	engine.Run()
 }
+
 
 // Setup all routes
 func (s *Server) addRoutes(engine *gin.Engine) {

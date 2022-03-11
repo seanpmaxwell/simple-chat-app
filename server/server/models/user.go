@@ -4,6 +4,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// Core User table
 type User struct {
 	gorm.Model
 	Email     string    `json:"email" gorm:"unique;size:255;not null"`
@@ -11,6 +12,7 @@ type User struct {
 	UserCreds UserCreds `gorm:"constraint:OnDelete:CASCADE;"`
 }
 
+// Store sensitive info info
 type UserCreds struct {
 	gorm.Model
 	Pwdhash string `gorm:"size:255;not null"`
