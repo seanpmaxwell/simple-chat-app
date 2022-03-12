@@ -5,7 +5,6 @@ import { ParamMissingError } from '@shared/errors';
 import userService from '@services/user-service';
 
 
-
 // **** Vars/Constants **** //
 
 // Paths
@@ -15,9 +14,8 @@ const p = {
     fetchAll: '/',
 } as const;
 
-// Init router
+// Misc
 const router = new Router({prefix: p.prefix});
-
 
 
 // **** Functions **** //
@@ -35,7 +33,6 @@ router.post(p.add, async (ctx) => {
     ctx.status = HttpStatusCodes.CREATED;
 });
 
-
 /**
  * Fetch all.
  */
@@ -43,7 +40,6 @@ router.get(p.fetchAll, async (ctx) => {
     const users = await userService.fetchAll();
     ctx.body = {users};
 });
-
 
 
 // Export default

@@ -6,7 +6,6 @@ import pwdUtil from '@util/pwd-util';
 import envVars from '@shared/env-vars';
 
 
-
 // **** Types **** //
 
 interface ILoginResp {
@@ -14,7 +13,6 @@ interface ILoginResp {
     jwt?: string;
     error?: string;
 }
-
 
 
 // **** Functions **** //
@@ -45,7 +43,6 @@ async function login(email: string, password: string): Promise<ILoginResp> {
     return {passed: true, jwt};
 }
 
-
 /**
  * Encrypt data and return jwt.
  */
@@ -60,7 +57,6 @@ function sign(data: JwtPayload): Promise<string> {
         });
     });
 }
-
 
 
 // Export default

@@ -8,7 +8,6 @@ import { getSessionMw } from './middlewares';
 import envVars from '@shared/env-vars';
 
 
-
 // **** Vars/Constants **** //
 
 // Paths
@@ -19,9 +18,8 @@ const p = {
     logout: '/logout',
 } as const;
 
-// Init router
+// Misc
 const router = new Router({prefix: p.prefix});
-
 
 
 // **** Functions **** //
@@ -46,7 +44,6 @@ router.put(p.login, async (ctx) => {
     ctx.cookies.set((envVars.cookieProps.name ?? ''), jwt, envVars.cookieProps.options);
 });
 
-
 /**
  * Logout the user by deleting the cookie.
  */
@@ -54,7 +51,6 @@ router.get(p.logout, (ctx) => {
     ctx.cookies.set(envVars.cookieProps.name ?? '');
     ctx.status = HttpStatusCodes.OK;
 });
-
 
 /**
  * Get the logged in user's basic data.
@@ -68,7 +64,6 @@ router.get(p.sessionData, getSessionMw(), (ctx) => {
         waiting: false,
     };
 });
-
 
 
 // Export default

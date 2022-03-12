@@ -19,7 +19,6 @@ export interface IUserCreds {
 export type TSavedUser = Required<IUser>;
 
 
-
 // **** Functions **** //
 
 /**
@@ -37,7 +36,6 @@ function getNew(
     };
 }
 
-
 /**
  * Copy a user object.
  */
@@ -49,7 +47,6 @@ function copy(user: IUser): IUser {
         createdAt: user?.createdAt ?? new Date().toISOString(),
     };
 }
-
 
 
 // Export user functions

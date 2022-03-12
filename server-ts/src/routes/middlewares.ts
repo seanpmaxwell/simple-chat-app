@@ -3,7 +3,6 @@ import randomstring from 'randomstring';
 import envVars from '@shared/env-vars';
 
 
-
 /**
  * Parse jsonwebtoken, token data is available at "ctx.state.user".
  */
@@ -13,7 +12,6 @@ export function getApiMw() {
         cookie: envVars.cookieProps.name,
     }).unless({path: [/^\/api\/auth/]});
 }
-
 
 /**
  * Parse jsonwebtoken, token data is available at "ctx.state.user".
