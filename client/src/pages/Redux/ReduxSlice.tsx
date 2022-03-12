@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 // **** Types **** //
 
 export interface IReduxSliceState {
     count: number;
 }
-
 
 
 // **** Functions **** //
@@ -43,7 +43,6 @@ const slice = createSlice({
 //     increment,
 //   },
 // })
-
 
 
 // Export reducer and actions

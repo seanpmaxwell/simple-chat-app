@@ -7,6 +7,7 @@ import {
 import { PageWrapper } from '../../shared/components/PageWrapper';
 import LoginForm from './LoginForm';
 
+
 // **** Home **** //
 
 /**
@@ -44,7 +45,6 @@ const LoginPaper = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
     backgroundColor: '#fafafa',
 }));
-
 
 
 // Export default.

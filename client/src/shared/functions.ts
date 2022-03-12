@@ -1,4 +1,3 @@
-
 /**
  * Convert 'John Paul Smith' to 'JS'.
  */

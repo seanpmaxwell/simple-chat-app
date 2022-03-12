@@ -1,12 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid } from '@mui/material';
 
-
 import { PageWrapper } from '../../shared/components/PageWrapper';
 import { useSetState } from '../../shared/hooks';
 import { actions as slc, IReduxSliceState } from './ReduxSlice';
 import ReduxSlice from './ReduxChild/ReduxChild';
-
 
 
 // **** Redux **** //
@@ -83,6 +81,8 @@ function Redux(): JSX.Element {
     </PageWrapper>);
 }
 
+
+/**** Functions ****/
 
 /**
  * Get the initial state.

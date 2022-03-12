@@ -14,7 +14,6 @@ import usersHttp, { IUser } from '../../shared/http/users-http';
 import { useEffect } from 'react';
 
 
-
 // **** Users **** //
 
 interface IState {
@@ -87,7 +86,6 @@ function Users(): JSX.Element {
 }
 
 
-
 // **** Functions **** //
 
 /**
@@ -99,7 +97,6 @@ function init(): IState {
         users: [],
     };
 }
-
 
 /**
  * Fetch all users from the database
@@ -114,7 +111,6 @@ async function fetchUsers(): Promise<IUser[]> {
     }
     return users;
 }
-
 
 
 // Export default

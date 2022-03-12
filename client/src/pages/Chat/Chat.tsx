@@ -1,5 +1,6 @@
 import { PageWrapper } from "../../shared/components/PageWrapper";
 
+
 // **** Chat **** //
 
 /**
@@ -10,7 +11,6 @@ function Chat(): JSX.Element {
         <PageWrapper>Chat</PageWrapper>
     );
 }
-
 
 
 // Export default.
