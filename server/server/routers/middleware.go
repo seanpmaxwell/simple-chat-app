@@ -26,14 +26,12 @@ type Middlware struct {
 }
 
 
-
 /**** Functions ****/
 
 // Wire Middleware
 func WireMiddleware(envVars *shared.EnvVars, jwtUtil *util.JwtUtil) *Middlware {
 	return &Middlware{envVars, jwtUtil}
 }
-
 
 // Check the jwt-cookie is present.
 func (m *Middlware) SessionMw(c *gin.Context) {

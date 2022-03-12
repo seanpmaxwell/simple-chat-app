@@ -24,7 +24,6 @@ const store = configureStore({
 });
 
 
-
 // **** Setup Context **** //
 
 export let appCtx = React.createContext<IContext>({
@@ -36,7 +35,6 @@ interface IContext {
     sessionData: ISessionData
     fetchSessionData: () => Promise<void>;
 }
-
 
 
 // **** App **** //
@@ -99,6 +97,8 @@ function App() {
 }
 
 
+/**** Functions ****/
+
 /**
  * Get initial-state
  */
@@ -107,7 +107,6 @@ function init(): IState {
         sessionData: getEmptySessionData(),
     };
 }
-
 
 /**
  * Get blank session-data (avoid undefined errors before login)
@@ -120,7 +119,6 @@ function getEmptySessionData(): ISessionData {
         waiting: true,
     };
 }
-
 
 /**
  * Fetch jwt session-data

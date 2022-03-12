@@ -1,5 +1,6 @@
 import http from './http';
 
+/**** Vars/Consts ****/
 
 // Routes
 const prefix = '/api/auth',
@@ -10,6 +11,9 @@ const prefix = '/api/auth',
     } as const;
 
 
+
+/**** Types ****/
+
 export interface ISessionData {
     id: number;
     email: string;
@@ -17,6 +21,9 @@ export interface ISessionData {
     waiting: boolean;
 }
 
+
+
+/**** Functions ****/
 
 /**
  * Login user. Return a boolean letting user know if passed or failed.
@@ -26,6 +33,7 @@ async function login(email: string, password: string): Promise<boolean> {
     return resp.passed;
 }
 
+
 /**
  * Delete the session cookie.
  */
@@ -33,12 +41,14 @@ function logout(): Promise<void> {
     return http(routes.logout);
 }
 
+
 /**
  * Fetch session data from jwt.
  */
 function getSessionData(): Promise<ISessionData> {
     return http(routes.sessionData);
 }   
+
 
 
 // Export default

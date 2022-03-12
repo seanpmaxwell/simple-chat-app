@@ -14,9 +14,8 @@ import authHttp, { ISessionData } from '../../shared/http/auth-http';
 import { getInitials } from '../../shared/functions';
 import { appCtx } from '../App';
 
-
-
 // **** Constants **** //
+
 const routes = ['/users', '/chat'];
 
 

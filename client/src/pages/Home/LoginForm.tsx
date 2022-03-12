@@ -12,8 +12,6 @@ import { useSetState } from '../../shared/hooks';
 import authHttp from '../../shared/http/auth-http';
 import { appCtx } from '../App';
 
-
-
 // **** Types **** //
 
 enum LoginStatus {
@@ -99,6 +97,9 @@ function LoginForm(): JSX.Element {
     );
 }
 
+
+
+/**** Functions ****/
 
 /**
  * Initial State

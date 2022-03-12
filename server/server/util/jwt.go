@@ -24,7 +24,6 @@ const (
 )
 
 
-
 /**** Types ****/
 
 // The data stored in the jwt
@@ -39,14 +38,12 @@ type JwtUtil struct {
 }
 
 
-
 /**** Functions ****/
 
 // Wire()
 func WireJwtUtil(envVars *shared.EnvVars) *JwtUtil {
 	return &JwtUtil{EnvVars: envVars}
 }
-
 
 // Get a jwt string with the data encoded.
 func (j *JwtUtil) Sign(data interface{}) (string, error) {
@@ -69,7 +66,6 @@ func (j *JwtUtil) Sign(data interface{}) (string, error) {
 	return tokenStr, err
 }
 
-
 // Parse a jwt string and return the data.
 func (j *JwtUtil) Parse(jwtstr string) (*map[string]interface{}, error) {
 	// Parse the the token, Don't forget to validate the alg is what you expect.
@@ -89,7 +85,6 @@ func (j *JwtUtil) Parse(jwtstr string) (*map[string]interface{}, error) {
 	// Return
 	return &data, nil
 }
-
 
 // Provide the secret and algorithm to the jwt.Parse() method above.
 func (j *JwtUtil) parseHelper(token *jwt.Token) (interface{}, error) {

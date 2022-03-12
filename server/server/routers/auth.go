@@ -26,7 +26,6 @@ type AuthRouter struct {
 }
 
 
-
 /**** Functions ****/
 
 // Wire AuthRouter
@@ -37,7 +36,6 @@ func WireAuthRouter(
 ) *AuthRouter {
 	return &AuthRouter{envVars, jwtUtil, authService}
 }
-
 
 // Login a user (store session data in jwt and put jwt in a cookie)
 func (a *AuthRouter) Login(c *gin.Context) {
@@ -69,7 +67,6 @@ func (a *AuthRouter) Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }
 
-
 // Logout user by setting cookies maxAge = 0 and removing jwtstr
 func (a *AuthRouter) Logout(c *gin.Context) {
 	// Set the cookie
@@ -79,7 +76,6 @@ func (a *AuthRouter) Logout(c *gin.Context) {
 	// Return
 	c.JSON(http.StatusOK, gin.H{"success": true})
 }
-
 
 // Fetch session data from the jwt
 func (a *AuthRouter) SessionData(c *gin.Context) {

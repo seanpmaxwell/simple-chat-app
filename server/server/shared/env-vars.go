@@ -40,7 +40,6 @@ type EnvVars struct {
 }
 
 
-
 /**** Functions ****/
 
 // Wire EnvVars

@@ -31,14 +31,12 @@ type UserRouter struct {
 }
 
 
-
 /**** Functions ****/
 
 // Wire UserRouter
 func WireUserRouter(userService *services.UserService) *UserRouter {
 	return &UserRouter{userService}
 }
-
 
 // Fetch all users.
 func (u *UserRouter) FetchAll(c *gin.Context) {
@@ -49,7 +47,6 @@ func (u *UserRouter) FetchAll(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"users": users})
 }
-
 
 // Add a new user.
 func (u *UserRouter) Add(c *gin.Context) {
@@ -69,7 +66,6 @@ func (u *UserRouter) Add(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"status": "success"})
 }
 
-
 // Update user's email and name.
 func (u *UserRouter) Update(c *gin.Context) {
 	// Extract user from json
@@ -87,7 +83,6 @@ func (u *UserRouter) Update(c *gin.Context) {
 	}
 	c.JSON(http.StatusCreated, gin.H{"status": "success"})
 }
-
 
 // Delete one user.
 func (u *UserRouter) Delete(c *gin.Context) {

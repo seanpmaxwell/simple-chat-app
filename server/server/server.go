@@ -14,7 +14,6 @@ const (
 )
 
 
-
 /**** Types ****/
 
 // Server
@@ -23,7 +22,6 @@ type Server struct {
 	apiRouter  *routers.ApiRouter
 	middleware *routers.Middlware
 }
-
 
 
 /**** Functions ****/
@@ -37,7 +35,6 @@ func WireServer(
 	return &Server{envVars, apiRouter, middleware}
 }
 
-
 // Start the gin engine.
 func (s *Server) Start() {
 	engine := gin.Default()
@@ -48,7 +45,6 @@ func (s *Server) Start() {
 	engine.Use()
 	engine.Run()
 }
-
 
 // Setup all routes
 func (s *Server) addRoutes(engine *gin.Engine) {

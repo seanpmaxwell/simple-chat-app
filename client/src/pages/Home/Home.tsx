@@ -7,8 +7,6 @@ import {
 import { PageWrapper } from '../../shared/components/PageWrapper';
 import LoginForm from './LoginForm';
 
-
-
 // **** Home **** //
 
 /**

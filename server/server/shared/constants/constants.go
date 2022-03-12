@@ -7,7 +7,6 @@ const (
 )
 
 
-
 /**** Functions ****/
 
 // The key used to identify session data on the context

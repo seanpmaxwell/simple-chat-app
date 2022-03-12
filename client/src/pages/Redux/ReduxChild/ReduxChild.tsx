@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { actions as slc, IReduxSliceState } from '../ReduxSlice';
 
-
-
 // **** ReduxChild **** //
 
 /**

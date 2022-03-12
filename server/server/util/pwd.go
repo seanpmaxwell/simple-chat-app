@@ -8,14 +8,12 @@ import "golang.org/x/crypto/bcrypt"
 type PwdUtil struct{}
 
 
-
 /**** Functions ****/
 
 // Wire PwdUtil
 func WirePwdUtil() *PwdUtil {
 	return &PwdUtil{}
 }
-
 
 // Generate a hash from a password.
 func (p *PwdUtil) Hash(pwd string) (string, error) {
@@ -25,7 +23,6 @@ func (p *PwdUtil) Hash(pwd string) (string, error) {
 	}
 	return string(hash), nil
 }
-
 
 // Check password against hash.
 func (p *PwdUtil) Verify(pwdHash string, password string) bool {

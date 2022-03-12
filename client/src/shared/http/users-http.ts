@@ -1,5 +1,6 @@
 import http from './http';
 
+/**** Vars/Consts ****/
 
 // User routes
 const prefix = '/api/users',
@@ -7,6 +8,7 @@ const prefix = '/api/users',
         add: ['POST', prefix],
         fetchAll: ['GET', prefix],
     } as const;
+
 
 
 // **** Types **** //
@@ -18,6 +20,7 @@ export interface IUser {
 }
 
 
+
 // **** Functions **** //
 
 /**
@@ -27,12 +30,14 @@ function add(email: string, name: string, password: string): Promise<void> {
     return http(routes.add, {email, name, password});
 }
 
+
 /**
  * Fetch all users.
  */
 function fetchAll(): Promise<{users: IUser[]}> {
     return http(routes.fetchAll);
 }
+
 
 
 // Export default

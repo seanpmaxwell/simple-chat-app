@@ -15,7 +15,6 @@ const (
 )
 
 
-
 /**** Types ****/
 
 // AuthService layer
@@ -25,14 +24,12 @@ type AuthService struct {
 }
 
 
-
 /**** Functions ****/
 
 // Wire AuthService
 func WireAuthService(userRepo *repos.UserRepo, pwdUtil *util.PwdUtil) *AuthService {
 	return &AuthService{userRepo, pwdUtil}
 }
-
 
 // Verify user credentials
 func (a *AuthService) VerifyAndFetchUser(email string, password string) (*models.User, error) {

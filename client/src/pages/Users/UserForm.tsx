@@ -10,15 +10,13 @@ import { useSetState } from '../../shared/hooks';
 import usersHttp from '../../shared/http/users-http';
 
 
-
-// **** Modes **** //
+/**** Vars/Consts ****/
 
 export enum Modes {
     Closed = 1,
     Add,
     Edit,
 }
-
 
 
 // **** UserForm **** //
@@ -133,7 +131,6 @@ function UserForm(props: IProps): JSX.Element {
 }
 
 
-
 // **** Functions **** //
 
 /**
@@ -147,7 +144,6 @@ function init(): IState {
         addUserFailed: false,
     };
 }
-
 
 /**
  * Add a new user
@@ -163,7 +159,6 @@ async function addUser(state: IState): Promise<boolean> {
     }
     return success;
 } 
-
 
 
 // Export default

@@ -14,14 +14,12 @@ type UserRepo struct {
 }
 
 
-
 /**** Functions ****/
 
 // Wire UserRepo
 func WireUserRepo(db *gorm.DB) *UserRepo {
 	return &UserRepo{db}
 }
-
 
 // Find a user by their id.
 func (u *UserRepo) FindById(id uint) (*models.User, error) {
@@ -33,7 +31,6 @@ func (u *UserRepo) FindById(id uint) (*models.User, error) {
 	return &user, nil
 }
 
-
 // Find a user by email.
 func (u *UserRepo) FindByEmail(email string) (*models.User, error) {
 	var user models.User
@@ -43,7 +40,6 @@ func (u *UserRepo) FindByEmail(email string) (*models.User, error) {
 	}
 	return &user, nil
 }
-
 
 // Fetch all users.
 func (u *UserRepo) FetchAll() (*[]models.User, error) {
@@ -56,7 +52,6 @@ func (u *UserRepo) FetchAll() (*[]models.User, error) {
 	return &users, nil
 }
 
-
 // Add a new user.
 func (u *UserRepo) Add(email string, name string) (*models.User, error) {
 	newUser := models.User{Email: email, Name: name}
@@ -67,12 +62,10 @@ func (u *UserRepo) Add(email string, name string) (*models.User, error) {
 	return &newUser, nil
 }
 
-
 // Update user's email and name.
 func (u *UserRepo) Update(user *models.User, email string, name string) {
 	u.Db.Model(user).Updates(models.User{Email: email, Name: name})
 }
-
 
 // Delete one user.
 func (u *UserRepo) Delete(id uint) error {
@@ -83,7 +76,6 @@ func (u *UserRepo) Delete(id uint) error {
 	return nil
 }
 
-
 // Fetch a user's hashed password
 func (u *UserRepo) GetPwdHash(userId uint) (string, error) {
 	var userCreds models.UserCreds
@@ -93,7 +85,6 @@ func (u *UserRepo) GetPwdHash(userId uint) (string, error) {
 	}
 	return userCreds.Pwdhash, nil
 }
-
 
 // Create a user credentials row to store confidentials stuff.
 func (u *UserRepo) SaveUserCreds(id uint, pwdHash string) error {

@@ -1,7 +1,5 @@
 import { PageWrapper } from "../../shared/components/PageWrapper";
 
-
-
 // **** NoPage **** //
 
 /**
@@ -12,6 +10,7 @@ function NoPage(): JSX.Element {
         <PageWrapper>The requested page was not found</PageWrapper>
     );
 }
+
 
 
 // Export default
