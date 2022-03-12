@@ -14,12 +14,16 @@ import usersHttp, { IUser } from '../../shared/http/users-http';
 import { useEffect } from 'react';
 
 
-// **** Users **** //
+// **** Types **** //
 
+// Users State
 interface IState {
     userFormMode: Modes;
     users: IUser[];
 }
+
+
+// **** Users **** //
 
 /**
  * Users()

@@ -20,12 +20,15 @@ import { appCtx } from '../App';
 const routes = ['/users', '/chat'];
 
 
-// **** TopBar **** //
+// **** Types **** //
 
 interface IState {
     selectedTab: number; // idx in the "routes" array above.
     menuAnchor: HTMLElement | null;
 }
+
+
+// **** TopBar **** //
 
 /**
  * TopBar()

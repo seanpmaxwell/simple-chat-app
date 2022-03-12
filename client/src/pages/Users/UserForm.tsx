@@ -10,7 +10,7 @@ import { useSetState } from '../../shared/hooks';
 import usersHttp from '../../shared/http/users-http';
 
 
-/**** Vars/Consts ****/
+// **** Vars ****//
 
 export enum Modes {
     Closed = 1,
@@ -19,19 +19,24 @@ export enum Modes {
 }
 
 
-// **** UserForm **** //
+// **** Types ****//
 
+// UserForm Props
 interface IProps {
     mode: Modes;
     setMode: (mode: Modes) => void;
 }
 
+// UserForm State
 interface IState {
     email: string;
     name: string;
     password: string
     addUserFailed: boolean
 }
+
+
+// **** UserForm **** //
 
 /**
  * UserForm()

@@ -15,6 +15,7 @@ import { appCtx } from '../App';
 
 // **** Types **** //
 
+// Login Status
 enum LoginStatus {
     NA = 1,
     Waiting,
@@ -22,14 +23,15 @@ enum LoginStatus {
     Passed,
 }
 
-
-// **** LoginForm **** //
-
+// LoginForm State
 interface IState {
     email: string;
     password: string;
     loginStatus: LoginStatus
 }
+
+
+// **** LoginForm **** //
 
 /**
  * LoginForm()

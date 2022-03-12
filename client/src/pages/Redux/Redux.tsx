@@ -7,11 +7,14 @@ import { actions as slc, IReduxSliceState } from './ReduxSlice';
 import ReduxSlice from './ReduxChild/ReduxChild';
 
 
-// **** Redux **** //
+// **** Types **** //
 
 interface IState {
     count: number;
 }
+
+
+// **** Redux **** //
 
 /**
  * Redux()
