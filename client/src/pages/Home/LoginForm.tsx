@@ -12,6 +12,7 @@ import { useSetState } from '../../shared/hooks';
 import authHttp from '../../shared/http/auth-http';
 import { appCtx } from '../App';
 
+
 // **** Types **** //
 
 enum LoginStatus {
@@ -20,7 +21,6 @@ enum LoginStatus {
     Failed,
     Passed,
 }
-
 
 
 // **** LoginForm **** //
@@ -98,7 +98,6 @@ function LoginForm(): JSX.Element {
 }
 
 
-
 /**** Functions ****/
 
 /**
@@ -111,7 +110,6 @@ function init(): IState {
         loginStatus: LoginStatus.NA,
     };
 }
-
 
 /**
  * Login User
@@ -127,7 +125,6 @@ async function loginUser(state: IState): Promise<LoginStatus> {
     }
     return status;
 }
-
 
 
 // Export default
