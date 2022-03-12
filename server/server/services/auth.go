@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-/**** Consts/Vars ****/
+// **** Vars **** //
 
 const (
 	checkPwdFailed = "password verification failed"

@@ -15,7 +15,7 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
-/**** Consts/Vars ****/
+// **** Vars **** //
 
 const (
 	tokenValFailedErr   = "token validation failed"

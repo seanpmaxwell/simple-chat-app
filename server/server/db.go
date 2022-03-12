@@ -9,7 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-/**** Consts/Vars ****/
+// **** Vars **** //
 
 const (
 	dnsStr = "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable"

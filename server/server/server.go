@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-/**** Consts/Vars ****/
+// **** Vars **** //
 
 const (
 	serverStartMsg = "Gin server running on localhost"
