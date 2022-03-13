@@ -15,7 +15,7 @@ import { getInitials } from '../../shared/functions';
 import { appCtx } from '../App';
 
 
-// **** Vars **** //
+// **** Vals **** //
 
 const routes = ['/users', '/chat'];
 

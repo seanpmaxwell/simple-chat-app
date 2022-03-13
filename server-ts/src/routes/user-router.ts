@@ -5,7 +5,7 @@ import { ParamMissingError } from '@shared/errors';
 import userService from '@services/user-service';
 
 
-// **** Vars **** //
+// **** Vals **** //
 
 // Paths
 const p = {

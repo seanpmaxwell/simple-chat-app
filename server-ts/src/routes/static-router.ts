@@ -1,7 +1,7 @@
 import Router from 'koa-router';
 
 
-// **** Vars **** //
+// **** Vals **** //
 
 // Misc
 const router = new Router();

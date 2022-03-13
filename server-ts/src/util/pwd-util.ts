@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 
 
-// **** Vars **** //
+// **** Vals **** //
 
 // Misc
 const pwdSaltRounds = 12;

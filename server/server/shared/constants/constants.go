@@ -1,6 +1,6 @@
 package constants
 
-// **** Vars **** //
+// **** Vals **** //
 
 const (
 	sessionDataKey = "session-data"

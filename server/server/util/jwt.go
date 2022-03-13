@@ -15,7 +15,7 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
-// **** Vars **** //
+// **** Vals **** //
 
 const (
 	tokenValFailedErr   = "token validation failed"
@@ -26,15 +26,15 @@ const (
 
 /**** Types ****/
 
+// Layer
+type JwtUtil struct {
+	EnvVars *shared.EnvVars
+}
+
 // The data stored in the jwt
 type JwtClaims struct {
 	jwt.StandardClaims
 	Data interface{} `json:"data"`
-}
-
-// Layer
-type JwtUtil struct {
-	EnvVars *shared.EnvVars
 }
 
 

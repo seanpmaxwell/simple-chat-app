@@ -11,6 +11,11 @@ import (
 
 /**** Types ****/
 
+// UserRouter layer
+type UserRouter struct {
+	UserService *services.UserService
+}
+
 // Add user request
 type AddUserReq struct {
 	Email    string `json:"email"`
@@ -23,11 +28,6 @@ type UpdateUserReq struct {
 	ID    uint   `json:"id"`
 	Email string `json:"email"`
 	Name  string `json:"name"`
-}
-
-// UserRouter layer
-type UserRouter struct {
-	UserService *services.UserService
 }
 
 

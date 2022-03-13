@@ -8,7 +8,7 @@ import { getSessionMw } from './middlewares';
 import envVars from '@shared/env-vars';
 
 
-// **** Vars **** //
+// **** Vals **** //
 
 // Paths
 const p = {
