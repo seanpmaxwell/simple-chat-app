@@ -37,14 +37,17 @@ interface IContext {
 }
 
 
-// **** App **** //
+// **** Types **** //
 
 interface IState {
     sessionData: ISessionData;
 }
 
+
+// **** App **** //
+
 /**
- * App()
+ * Render()
  */
 function App() {
     const [state, setState] = useSetState(init());

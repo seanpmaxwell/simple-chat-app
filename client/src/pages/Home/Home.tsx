@@ -11,7 +11,7 @@ import LoginForm from './LoginForm';
 // **** Home **** //
 
 /**
- * Home()
+ * Render()
  */
 function Home(): JSX.Element {
     return (<PageWrapper>

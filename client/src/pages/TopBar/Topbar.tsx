@@ -31,7 +31,7 @@ interface IState {
 // **** TopBar **** //
 
 /**
- * TopBar()
+ * Render()
  */
 function TopBar() {
     const [state, setState ] = useSetState(init()),

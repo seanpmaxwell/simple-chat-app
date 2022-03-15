@@ -39,7 +39,7 @@ interface IState {
 // **** UserForm **** //
 
 /**
- * UserForm()
+ * Render()
  */
 function UserForm(props: IProps): JSX.Element {
     const [state, setState ] = useSetState(init());

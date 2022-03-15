@@ -4,7 +4,7 @@ import { PageWrapper } from "../../shared/components/PageWrapper";
 // **** NoPage **** //
 
 /**
- * NoPage()
+ * Render
  */
 function NoPage(): JSX.Element {
     return (

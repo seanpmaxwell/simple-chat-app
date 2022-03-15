@@ -4,7 +4,7 @@ import { PageWrapper } from "../../shared/components/PageWrapper";
 // **** Chat **** //
 
 /**
- * Chat()
+ * Render()
  */
 function Chat(): JSX.Element {
     return (

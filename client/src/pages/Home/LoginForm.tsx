@@ -34,7 +34,7 @@ interface IState {
 // **** LoginForm **** //
 
 /**
- * LoginForm()
+ * Render()
  */
 function LoginForm(): JSX.Element {
     const [state, setState ] = useSetState(init()),

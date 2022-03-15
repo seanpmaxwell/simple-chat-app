@@ -26,7 +26,7 @@ interface IState {
 // **** Users **** //
 
 /**
- * Users()
+ * Render()
  */
 function Users(): JSX.Element {
     const [state, setState ] = useSetState(init());

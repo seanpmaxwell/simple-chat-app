@@ -17,7 +17,7 @@ interface IState {
 // **** Redux **** //
 
 /**
- * Redux()
+ * Render()
  */
 function Redux(): JSX.Element {
     const [state, setState ] = useSetState(init());
